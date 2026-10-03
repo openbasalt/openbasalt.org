@@ -37,6 +37,17 @@
     <meta name="twitter:image" content="https://openbasalt.org/assets/social-preview.png" />
 
     <link rel="stylesheet" href="assets/site.css?v=2" />
+    <!-- Umami, self-hosted. No cookies, no cross-site identifier, no personal
+         data. data-do-not-track makes it stand down for anyone whose browser
+         asks not to be tracked, and data-domains keeps it quiet on forks and
+         local previews. -->
+    <script
+      defer
+      src="https://analytics.openbasalt.org/script.js"
+      data-website-id="fb8b8b57-2eb4-46c1-8e54-4c75de886963"
+      data-domains="openbasalt.org,www.openbasalt.org"
+      data-do-not-track="true"
+    ></script>
   </head>
   <body>
     <a class="skip" href="#main">Skip to content</a>
@@ -164,7 +175,10 @@
 
     <footer class="site-footer">
       <div class="wrap">
-        <p>OpenBasalt. Open source on solid ground.</p>
+        <div>
+          <p>OpenBasalt. Open source on solid ground.</p>
+          <p>This site counts visits with <a href="https://umami.is">Umami</a>, self-hosted: no cookies, no personal data, and it honours Do Not Track.</p>
+        </div>
         <ul class="footer-links">
           <li><a href="https://github.com/openbasalt">GitHub</a></li>
           <li><a href="https://github.com/openbasalt/openbasalt.org">Site source</a></li>
