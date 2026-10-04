@@ -36,7 +36,7 @@
     />
     <meta name="twitter:image" content="https://openbasalt.org/assets/social-preview.png" />
 
-    <link rel="stylesheet" href="assets/site.css?v=2" />
+    <link rel="stylesheet" href="assets/site.css?v=3" />
     <!-- Umami, self-hosted. No cookies, no cross-site identifier, no personal
          data. data-do-not-track makes it stand down for anyone whose browser
          asks not to be tracked, and data-domains keeps it quiet on forks and
@@ -67,6 +67,7 @@
         <nav class="nav" aria-label="Main">
           <a class="nav-optional" href="#principles">Principles</a>
           <a href="#projects">Projects</a>
+          <a class="nav-optional" href="#basalt-os">Basalt OS</a>
           <a href="https://github.com/openbasalt">GitHub</a>
         </nav>
       </div>
@@ -90,7 +91,7 @@
               <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
               github.com/openbasalt
             </a>
-            <a class="button" href="#principles">Our principles</a>
+            <a class="button" href="#basalt-os">Meet Basalt OS</a>
           </div>
         </div>
       </section>
@@ -147,31 +148,101 @@
       <section id="projects" class="section" aria-labelledby="projects-title">
         <div class="wrap">
           <p class="eyebrow">Projects</p>
-          <h2 id="projects-title">First projects coming soon.</h2>
+          <h2 id="projects-title">Columns, built in the open.</h2>
           <p class="section-intro">
-            The first projects are being prepared for release. Each one will live in its own
-            repository under the organization.
+            Each project lives in its own repository, with its own purpose and release cycle. All of
+            them are young: they work in the source today, and none has a stable release yet.
           </p>
           <div class="projects">
-            <article class="project">
+            <article id="basalt-os" class="project featured" aria-labelledby="basalt-os-title">
               <div class="project-head">
-                <h3>basalt-os</h3>
-                <span class="tag">Reserved</span>
+                <h3 id="basalt-os-title">Basalt OS</h3>
+                <span class="tag">Pre-alpha</span>
               </div>
-              <p>Reserved for a future Linux distribution.</p>
-              <p><a href="https://github.com/openbasalt/basalt-os">github.com/openbasalt/basalt-os</a></p>
-            </article>
-            <article class="project soon">
-              <div class="project-head">
-                <h3>more on the way</h3>
-                <span class="tag">Coming soon</span>
+              <p class="project-lede">
+                A Linux distribution based on Fedora, built security and AI first. AI agents can do
+                real work on the system through typed, auditable actions, always confined and
+                confirmed by a person. When the two pull apart, security sets the limits.
+              </p>
+              <div class="status-grid">
+                <div>
+                  <p class="status-title">Working in the source today</p>
+                  <ul class="status-list">
+                    <li>SELinux enforcing on every install, and disk encryption with LUKS2 unlocked by the TPM2.</li>
+                    <li>A snapshot before and after every package change, with rollback from the running system or the boot menu.</li>
+                    <li>Secure Boot, and signed packages and repository metadata.</li>
+                    <li>A confined local assistant that proposes fixes and applies nothing without your confirmation.</li>
+                    <li>A desktop shell prototype where every change waits for the person.</li>
+                  </ul>
+                </div>
+                <div>
+                  <p class="status-title">In development</p>
+                  <ul class="status-list">
+                    <li>A desktop edition with voice, where AI uses your apps for you, safely.</li>
+                    <li>Approvals from a phone paired with your machine.</li>
+                    <li>A live ISO, to boot and look around without installing anything.</li>
+                  </ul>
+                </div>
               </div>
               <p>
-                Follow the organization on GitHub to see new projects as they are published.
+                Nothing is released as stable yet. Today you can build the installer from the source
+                and try it in a virtual machine. The details, the roadmap and a way to tell us what you
+                think are on the Basalt OS site.
               </p>
-              <p><a href="https://github.com/openbasalt">github.com/openbasalt</a></p>
+              <div class="actions">
+                <a class="button primary" href="https://basalt-os.org">basalt-os.org</a>
+                <a class="button" href="https://basalt-os.org/#feedback">Try it and tell us</a>
+              </div>
+              <ul class="repo-links" aria-label="Basalt OS repositories">
+                <li><a href="https://github.com/basalt-os/basalt-os">basalt-os/basalt-os</a>: the system and its tools</li>
+                <li><a href="https://github.com/basalt-os/basalt-shell">basalt-os/basalt-shell</a>: the desktop shell prototype</li>
+                <li><a href="https://github.com/basalt-os/vsm">basalt-os/vsm</a>: the small decision model behind the assistant</li>
+                <li><a href="https://github.com/basalt-os/feedback-worker">basalt-os/feedback-worker</a>: the service behind the feedback form</li>
+              </ul>
+            </article>
+            <article class="project">
+              <div class="project-head">
+                <h3>Samba Conductor</h3>
+                <span class="tag">Pre-release</span>
+              </div>
+              <p>
+                A web administrator and self-service portal for Samba Active Directory, with
+                encrypted domain backups, file servers and Google Workspace sync as companion
+                projects. RPM packages are in the basalt-tools repository on obpkg.org.
+              </p>
+              <p><a href="https://github.com/openbasalt/samba-conductor">github.com/openbasalt/samba-conductor</a></p>
+            </article>
+            <article class="project">
+              <div class="project-head">
+                <h3>obpkg.org</h3>
+                <span class="tag">Live</span>
+              </div>
+              <p>
+                The download domain for OpenBasalt packages, all signed with the OpenBasalt release
+                key: basalt for Basalt OS, basalt-tools for our tools on Fedora-based systems, and
+                basalt-testing for packages on their way, opt-in.
+              </p>
+              <p><a href="https://obpkg.org">obpkg.org</a></p>
             </article>
           </div>
+        </div>
+      </section>
+
+      <section id="upstream" class="section" aria-labelledby="upstream-title">
+        <div class="wrap">
+          <p class="eyebrow">Giving back</p>
+          <h2 id="upstream-title">Built on the work of others.</h2>
+          <p class="section-intro">
+            Basalt OS stands on Fedora and its community. Samba Conductor exists because of Samba.
+            Every project here depends on years of open source work by people we may never meet, and
+            on many distributions and projects that solve problems in their own way. We learn from
+            all of them.
+          </p>
+          <p class="section-intro">
+            We try new ideas in the open, publish what we build under open licenses, and send what
+            belongs upstream back where it came from. Basalt OS is an independent project, not
+            affiliated with or endorsed by the Fedora Project or Red Hat.
+          </p>
         </div>
       </section>
     </main>

@@ -361,6 +361,66 @@ h3 {
   border-style: dashed;
 }
 
+/* Featured project: spans the full grid row and carries a status list. */
+.project.featured {
+  scroll-margin-top: 1rem;
+}
+
+.project .project-lede {
+  font-size: 1.1rem;
+  color: var(--ink);
+  max-width: 44rem;
+}
+
+.status-grid {
+  display: grid;
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+.project .status-title {
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent-ink);
+}
+
+.status-list {
+  margin: 0.6rem 0 0;
+  padding-left: 1.1rem;
+  color: var(--muted);
+}
+
+.status-list li + li {
+  margin-top: 0.35rem;
+}
+
+.status-list li::marker {
+  color: var(--core);
+}
+
+.project .actions {
+  margin-top: 1.5rem;
+}
+
+.repo-links {
+  list-style: none;
+  margin: 1.5rem 0 0;
+  padding: 1.25rem 0 0;
+  border-top: 1px solid var(--line);
+  display: grid;
+  gap: 0.4rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.repo-links a {
+  font-family: var(--mono);
+  font-size: 0.9rem;
+}
+
 /* Footer */
 
 .site-footer {
@@ -425,6 +485,16 @@ h3 {
 
   .projects {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .project.featured {
+    grid-column: 1 / -1;
+    padding: 2rem;
+  }
+
+  .status-grid {
+    grid-template-columns: 3fr 2fr;
+    gap: 2rem;
   }
 
   .site-footer .wrap {
