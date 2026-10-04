@@ -14,13 +14,16 @@
     <!-- Umami, self-hosted. No cookies, no cross-site identifier, no personal
          data. data-do-not-track makes it stand down for anyone whose browser
          asks not to be tracked, and data-domains keeps it quiet on forks and
-         local previews. -->
+         local previews. umami-filter.js (data-before-send) leaves automated
+         browsers out of the count without blocking them. -->
+    <script defer src="/assets/umami-filter.js?v=1"></script>
     <script
       defer
       src="https://analytics.openbasalt.org/script.js"
       data-website-id="fb8b8b57-2eb4-46c1-8e54-4c75de886963"
       data-domains="openbasalt.org,www.openbasalt.org"
       data-do-not-track="true"
+      data-before-send="umamiBeforeSend"
     ></script>
   </head>
   <body>
