@@ -861,6 +861,129 @@ h3 {
   margin-top: 1.5rem;
 }
 
+/* Project pages: feature cards, a lead screenshot, install steps with code. */
+
+.features {
+  list-style: none;
+  margin: 2rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 1rem;
+}
+
+.feature {
+  min-width: 0;
+  padding: 1.5rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.feature h3 {
+  font-size: 1.2rem;
+}
+
+.feature p {
+  margin: 0.5rem 0 0;
+  color: var(--muted);
+}
+
+.feature .component {
+  margin-top: 0.75rem;
+  font-family: var(--mono);
+  font-size: 0.85rem;
+}
+
+.lead-shot {
+  margin: 2rem 0 0;
+}
+
+.lead-shot img {
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.lead-shot figcaption {
+  margin-top: 0.6rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.prose {
+  max-width: 46rem;
+  min-width: 0;
+}
+
+/* A prose section keeps the page's left edge; only its content is narrowed. */
+.wrap.prose {
+  max-width: var(--max);
+}
+
+.wrap.prose > * {
+  max-width: 46rem;
+}
+
+.prose h3 {
+  margin-top: 2rem;
+  font-size: 1.25rem;
+}
+
+.prose p,
+.prose li {
+  color: var(--muted);
+}
+
+.prose p {
+  margin: 0.75rem 0 0;
+}
+
+.prose ul {
+  margin: 0.75rem 0 0;
+  padding-left: 1.1rem;
+}
+
+.prose li + li {
+  margin-top: 0.35rem;
+}
+
+.prose li::marker {
+  color: var(--core);
+}
+
+code {
+  font-family: var(--mono);
+  font-size: 0.9em;
+  overflow-wrap: anywhere;
+}
+
+pre {
+  margin: 0.75rem 0 0;
+  padding: 0.9rem 1rem;
+  max-width: 100%;
+  overflow-x: auto;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  font-family: var(--mono);
+  font-size: 0.82rem;
+  line-height: 1.6;
+  color: var(--ink);
+}
+
+pre code {
+  font-size: inherit;
+  overflow-wrap: normal;
+}
+
+.fingerprint {
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  color: var(--ink);
+  overflow-wrap: anywhere;
+}
+
 /* Wider screens */
 
 @media (min-width: 40rem) {
@@ -930,6 +1053,14 @@ h3 {
     align-items: center;
     padding: 2rem;
   }
+
+  .features {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  pre {
+    font-size: 0.85rem;
+  }
 }
 
 @media (min-width: 60rem) {
@@ -946,7 +1077,8 @@ h3 {
     margin-bottom: 0;
   }
 
-  .principles {
+  .principles,
+  .features {
     grid-template-columns: repeat(3, 1fr);
   }
 

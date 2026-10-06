@@ -8,18 +8,32 @@ tag and its small bot filter, and the gallery viewer, all described below. Serve
 
 ```
 index.html        home page
+projects/index.html  projects: Samba Conductor, Basalt OS and obpkg.org
+projects/samba-conductor/index.html  Samba Conductor: features, screens, status, install, repositories
 gallery/index.html  gallery: Samba Conductor screenshots and a pointer to the Basalt OS gallery
 404.html          not found page
 assets/site.css   styles (light and dark via prefers-color-scheme)
 assets/umami-filter.js  keeps automated browsers out of the visit count
 assets/gallery.js  gallery viewer and the optional Videos section (same file as on basalt-os.org)
 assets/gallery/   gallery images: <id>-720.webp and .jpg thumbnails, <id>-1600.webp
+assets/projects/  images used only by a project page (same three sizes), and its og.jpg
+assets/og/        Open Graph images, 1200x630, one per page
 assets/           favicons and the social preview image
 robots.txt, sitemap.xml
 ```
 
 To preview locally, serve the folder with any static server, for example
 `python3 -m http.server 8000`, and open http://localhost:8000.
+
+## Search and sharing
+
+Every indexable page has its own title and description, a canonical URL, Open
+Graph and Twitter tags with a 1200x630 image (`assets/og/`, or
+`assets/projects/<name>/og.jpg`), and is listed in `sitemap.xml` with its
+`lastmod`. The home page carries JSON-LD for the Organization, and a project
+page a SoftwareApplication. The 404 page is `noindex` and stays out of the
+sitemap. When a page is added, add it to `sitemap.xml`; when `assets/site.css`
+changes, bump its `?v=` query in every HTML file.
 
 ## Gallery
 

@@ -18,25 +18,29 @@
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="OpenBasalt" />
+    <meta property="og:locale" content="en_US" />
     <meta property="og:title" content="OpenBasalt: open source on solid ground" />
     <meta
       property="og:description"
       content="Independent, open infrastructure projects that fit together and serve as solid ground for others to build on."
     />
     <meta property="og:url" content="https://openbasalt.org/" />
-    <meta property="og:image" content="https://openbasalt.org/assets/social-preview.png" />
-    <meta property="og:image:width" content="1280" />
-    <meta property="og:image:height" content="640" />
+    <meta property="og:image" content="https://openbasalt.org/assets/og/home.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="OpenBasalt logo: an open hexagonal basalt column ring with a terra roxa core, and the tagline Open source on solid ground." />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@openbasalt" />
     <meta name="twitter:title" content="OpenBasalt: open source on solid ground" />
     <meta
       name="twitter:description"
       content="Independent, open infrastructure projects that fit together and serve as solid ground for others to build on."
     />
-    <meta name="twitter:image" content="https://openbasalt.org/assets/social-preview.png" />
+    <meta name="twitter:image" content="https://openbasalt.org/assets/og/home.png" />
+    <meta name="twitter:image:alt" content="OpenBasalt logo: an open hexagonal basalt column ring with a terra roxa core, and the tagline Open source on solid ground." />
 
-    <link rel="stylesheet" href="assets/site.css?v=4" />
+    <link rel="stylesheet" href="assets/site.css?v=5" />
     <!-- Umami, self-hosted. No cookies, no cross-site identifier, no personal
          data. data-do-not-track makes it stand down for anyone whose browser
          asks not to be tracked, and data-domains keeps it quiet on forks and
@@ -51,6 +55,30 @@
       data-do-not-track="true"
       data-before-send="umamiBeforeSend"
     ></script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "OpenBasalt",
+      "url": "https://openbasalt.org/",
+      "logo": "https://openbasalt.org/assets/icon-512.png",
+      "description": "An open source organization for infrastructure software: independent projects that fit together and serve as solid ground for others to build on.",
+      "sameAs": [
+        "https://github.com/openbasalt",
+        "https://github.com/basalt-os",
+        "https://x.com/openbasalt",
+        "https://www.youtube.com/@OpenBasalt"
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "OpenBasalt",
+      "url": "https://openbasalt.org/"
+    }
+    </script>
   </head>
   <body>
     <a class="skip" href="#main">Skip to content</a>
@@ -66,8 +94,9 @@
         </a>
         <nav class="nav" aria-label="Main">
           <a class="nav-optional" href="#principles">Principles</a>
-          <a href="#projects">Projects</a>
+          <a href="projects/">Projects</a>
           <a class="nav-optional" href="#basalt-os">Basalt OS</a>
+          <a class="nav-optional" href="projects/samba-conductor/">Samba Conductor</a>
           <a href="gallery/">Gallery</a>
           <a href="https://github.com/openbasalt">GitHub</a>
         </nav>
@@ -213,6 +242,7 @@
                 encrypted domain backups, file servers and Google Workspace sync as companion
                 projects. RPM packages are in the basalt-tools repository on obpkg.org.
               </p>
+              <p><a href="projects/samba-conductor/">About Samba Conductor: features, status and install</a></p>
               <p><a href="https://github.com/openbasalt/samba-conductor">github.com/openbasalt/samba-conductor</a></p>
               <p><a href="gallery/">See Samba Conductor in the gallery</a></p>
             </article>

@@ -1,0 +1,478 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Samba Conductor: web console for Samba Active Directory, OpenBasalt</title>
+    <meta name="description" content="Samba Conductor runs a Samba Active Directory domain from a web console, with single sign-on through OpenID Connect and SAML, Google Workspace sync, self-service and branding. Open source, Apache-2.0. Pre-release." />
+    <link rel="canonical" href="https://openbasalt.org/projects/samba-conductor/" />
+    <meta name="theme-color" content="#f6f5f2" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#14171b" media="(prefers-color-scheme: dark)" />
+
+    <link rel="icon" href="../../favicon.ico" sizes="32x32" />
+    <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="OpenBasalt" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:title" content="Samba Conductor: Samba Active Directory, run from a web console" />
+    <meta property="og:description" content="Administration, single sign-on with OIDC and SAML, Google Workspace sync and self-service for Samba AD. Open source, pre-release, packages for Debian, Ubuntu, Fedora and Basalt OS." />
+    <meta property="og:url" content="https://openbasalt.org/projects/samba-conductor/" />
+    <meta property="og:image" content="https://openbasalt.org/assets/projects/samba-conductor/og.jpg" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Samba Conductor, an OpenBasalt project: the dashboard and a change preview of a test domain, marked pre-release." />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@openbasalt" />
+    <meta name="twitter:title" content="Samba Conductor: Samba Active Directory, run from a web console" />
+    <meta name="twitter:description" content="Administration, single sign-on with OIDC and SAML, Google Workspace sync and self-service for Samba AD. Open source, pre-release, packages for Debian, Ubuntu, Fedora and Basalt OS." />
+    <meta name="twitter:image" content="https://openbasalt.org/assets/projects/samba-conductor/og.jpg" />
+    <meta name="twitter:image:alt" content="Samba Conductor, an OpenBasalt project: the dashboard and a change preview of a test domain, marked pre-release." />
+
+    <link rel="stylesheet" href="../../assets/site.css?v=5" />
+    <!-- Umami, self-hosted. No cookies, no cross-site identifier, no personal
+         data. data-do-not-track makes it stand down for anyone whose browser
+         asks not to be tracked, and data-domains keeps it quiet on forks and
+         local previews. umami-filter.js (data-before-send) leaves automated
+         browsers out of the count without blocking them. -->
+    <script defer src="../../assets/umami-filter.js?v=1"></script>
+    <script
+      defer
+      src="https://analytics.openbasalt.org/script.js"
+      data-website-id="fb8b8b57-2eb4-46c1-8e54-4c75de886963"
+      data-domains="openbasalt.org,www.openbasalt.org"
+      data-do-not-track="true"
+      data-before-send="umamiBeforeSend"
+    ></script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Samba Conductor",
+      "description": "Web console, self-service portal and single sign-on for Samba Active Directory, with Google Workspace sync, encrypted backups and file server management.",
+      "url": "https://openbasalt.org/projects/samba-conductor/",
+      "applicationCategory": "BusinessApplication",
+      "applicationSubCategory": "Directory administration",
+      "creativeWorkStatus": "Pre-release",
+      "operatingSystem": "Linux (Debian 13, Ubuntu 24.04 and 26.04, Fedora 44, Basalt OS)",
+      "license": "https://www.apache.org/licenses/LICENSE-2.0",
+      "isAccessibleForFree": true,
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "installUrl": "https://openbasalt.org/projects/samba-conductor/#install",
+      "image": "https://openbasalt.org/assets/projects/samba-conductor/og.jpg",
+      "screenshot": "https://openbasalt.org/assets/gallery/sc-dashboard-1600.webp",
+      "sameAs": [
+        "https://github.com/openbasalt/samba-conductor"
+      ],
+      "author": {
+        "@type": "Organization",
+        "name": "OpenBasalt",
+        "url": "https://openbasalt.org/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "OpenBasalt",
+        "url": "https://openbasalt.org/"
+      }
+    }
+    </script>
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <div class="wrap">
+        <a class="brand" href="../../" aria-label="OpenBasalt home">
+          <svg viewBox="0 0 512 512" aria-hidden="true" focusable="false">
+            <path class="mark-ring" d="M 445.44,143.36 L 460.80,343.04 L 286.72,471.04 L 71.68,378.88 L 56.32,163.84 L 266.24,46.08" fill="none" stroke-width="56.32" stroke-linejoin="round" stroke-linecap="round" />
+            <polygon class="mark-core" points="256.00,179.20 327.68,235.52 302.08,322.56 204.80,317.44 184.32,230.40" />
+          </svg>
+          <span class="wordmark" aria-hidden="true">open<span>basalt</span></span>
+        </a>
+        <nav class="nav" aria-label="Main">
+          <a class="nav-optional" href="../../#principles">Principles</a>
+          <a href="../../projects/">Projects</a>
+          <a href="../../gallery/">Gallery</a>
+          <a href="https://github.com/openbasalt">GitHub</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="wrap page-head" aria-labelledby="page-title">
+        <p class="eyebrow">Project</p>
+        <h1 id="page-title">Samba Conductor</h1>
+        <p class="lede">
+          A Samba Active Directory domain, run from a web console. Administrators manage users,
+          groups, DNS, Group Policy and backups from a browser; everyone in the domain gets a
+          self-service portal; other applications sign in with the domain account.
+        </p>
+        <div class="preview-banner" role="note">
+          <span class="status-dot" aria-hidden="true"></span>
+          <div>
+            <p>Pre-release, in its validation phase. There is no tagged version yet.</p>
+            <p>
+              Every part is tested end to end in a lab with two domain controllers, and packages are
+              published for testing. Try it on a test domain first, and expect changes before the
+              first release.
+            </p>
+          </div>
+        </div>
+        <div class="actions">
+          <a class="button primary" href="https://github.com/openbasalt/samba-conductor">
+            <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+            Source on GitHub
+          </a>
+          <a class="button" href="#install">Install</a>
+          <a class="button" href="#screens">Screens</a>
+        </div>
+        <figure class="lead-shot">
+          <picture>
+            <source srcset="../../assets/gallery/sc-dashboard-720.webp 720w, ../../assets/gallery/sc-dashboard-1600.webp 1366w" sizes="(min-width: 68rem) 64rem, 100vw" type="image/webp" />
+            <img src="../../assets/gallery/sc-dashboard-720.jpg" width="720" height="540" decoding="async" alt="Samba Conductor dashboard with counts of users, groups and computers, locked accounts, expiring accounts and a recent activity table." />
+          </picture>
+          <figcaption>The dashboard of a test domain: the domain at a glance, locked and expiring accounts, recent activity.</figcaption>
+        </figure>
+      </section>
+
+      <section id="features" class="section" aria-labelledby="features-title">
+        <div class="wrap">
+          <p class="eyebrow">What it does</p>
+          <h2 id="features-title">One console for the domain and the people in it.</h2>
+          <p class="section-intro">
+            Every directory operation runs with the signed-in person's own identity, so the domain's
+            own access rules apply. Every change shows the exact directory writes before it is
+            applied, and lands in an audit log that cannot be rewritten without it showing.
+          </p>
+          <ul class="features">
+            <li class="feature">
+              <h3>The domain controller, in a browser</h3>
+              <p>
+                Users, groups, OUs, computers, DNS zones and records, Group Policy links, password
+                policies, lockouts across domain controllers, account health and bulk changes from
+                CSV files. Two-factor sign-in, required for administrators.
+              </p>
+              <p class="component"><a href="https://github.com/openbasalt/samba-conductor">conductor</a></p>
+            </li>
+            <li class="feature">
+              <h3>Single sign-on with OIDC and SAML</h3>
+              <p>
+                An OpenID Connect provider and SAML 2.0 identity provider backed by the domain, with
+                guided presets for common applications, a consent screen, staged signing key rotation
+                and sign-in activity per application.
+              </p>
+              <p class="component"><a href="https://github.com/openbasalt/samba-conductor-idp">conductor-idp</a></p>
+            </li>
+            <li class="feature">
+              <h3>Google Workspace sync and import</h3>
+              <p>
+                Provisioning from the domain to Google Workspace: plan first, dry run by default,
+                safety limits, and accounts are suspended, never deleted. A one-time import creates
+                the domain's users and groups for a company that already uses Google Workspace.
+              </p>
+              <p class="component"><a href="https://github.com/openbasalt/samba-conductor-sync">conductor-sync</a></p>
+            </li>
+            <li class="feature">
+              <h3>Self-service and connected accounts</h3>
+              <p>
+                Everyone in the domain edits their own profile, changes their password and manages
+                their second factors and security keys. With the sync on, people activate their own
+                account on each connected service and set a new password for it.
+              </p>
+              <p class="component"><a href="https://github.com/openbasalt/samba-conductor">conductor</a></p>
+            </li>
+            <li class="feature">
+              <h3>Your own branding</h3>
+              <p>
+                The organization's name, logos, colors and texts on the self-service portal and the
+                sign-in pages, previewed in the light and dark theme with a contrast check before it
+                is saved.
+              </p>
+              <p class="component"><a href="https://github.com/openbasalt/samba-conductor/blob/main/docs/branding.md">branding guide</a></p>
+            </li>
+            <li class="feature">
+              <h3>Backups and file servers</h3>
+              <p>
+                Encrypted online backups of the domain, restore tooling and automated restore drills
+                that prove a backup can be restored. A small agent manages shares and their
+                permissions on domain-member file servers.
+              </p>
+              <p class="component">
+                <a href="https://github.com/openbasalt/samba-conductor-backup">conductor-backup</a>,
+                <a href="https://github.com/openbasalt/samba-conductor-files">conductor-files</a>
+              </p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="screens" class="gallery-section" aria-labelledby="screens-title">
+        <div class="wrap">
+          <h2 id="screens-title">Screens</h2>
+          <p class="section-intro">
+            Captured in our test lab with made-up people, names and addresses. Select an image to see
+            it larger. More in the <a href="../../gallery/">gallery</a>.
+          </p>
+          <ul class="shots">
+            <li class="shot">
+              <figure>
+                <a class="shot-link" href="../../assets/gallery/sc-preview-1600.webp" data-full="../../assets/gallery/sc-preview-1600.webp" data-width="1366" data-height="780">
+                  <picture>
+                    <source srcset="../../assets/gallery/sc-preview-720.webp" type="image/webp" />
+                    <img src="../../assets/gallery/sc-preview-720.jpg" width="720" height="411" loading="lazy" decoding="async" alt="New user preview listing the LDAP changes that will be sent, with the password redacted, and Apply and Cancel buttons." />
+                  </picture>
+                </a>
+                <figcaption>
+                  <span class="shot-caption">Exact changes: the LDAP writes are shown before you apply them. Passwords are never displayed.</span>
+                  <span class="shot-meta">conductor, 2026-10</span>
+                </figcaption>
+              </figure>
+            </li>
+            <li class="shot">
+              <figure>
+                <a class="shot-link" href="../../assets/gallery/sc-sso-1600.webp" data-full="../../assets/gallery/sc-sso-1600.webp" data-width="1366" data-height="1024">
+                  <picture>
+                    <source srcset="../../assets/gallery/sc-sso-720.webp" type="image/webp" />
+                    <img src="../../assets/gallery/sc-sso-720.jpg" width="720" height="540" loading="lazy" decoding="async" alt="Single sign-on overview with counts of applications and sign-ins, actions and the identity provider endpoints of a test domain." />
+                  </picture>
+                </a>
+                <figcaption>
+                  <span class="shot-caption">Single sign-on with OpenID Connect and SAML 2.0, using the domain account.</span>
+                  <span class="shot-meta">conductor-idp, 2026-10</span>
+                </figcaption>
+              </figure>
+            </li>
+            <li class="shot">
+              <figure>
+                <a class="shot-link" href="../../assets/projects/samba-conductor/sc-sync-setup-1600.webp" data-full="../../assets/projects/samba-conductor/sc-sync-setup-1600.webp" data-width="1366" data-height="1122">
+                  <picture>
+                    <source srcset="../../assets/projects/samba-conductor/sc-sync-setup-720.webp" type="image/webp" />
+                    <img src="../../assets/projects/samba-conductor/sc-sync-setup-720.jpg" width="720" height="591" loading="lazy" decoding="async" alt="Google Workspace sync setup, step 3 of 6: org unit rules that place members of an AD group or users of an OU in a Google org unit, with priorities." />
+                  </picture>
+                </a>
+                <figcaption>
+                  <span class="shot-caption">Google Workspace sync setup: who goes to which Google org unit, by AD group or OU.</span>
+                  <span class="shot-meta">conductor-sync, 2026-10</span>
+                </figcaption>
+              </figure>
+            </li>
+            <li class="shot">
+              <figure>
+                <a class="shot-link" href="../../assets/projects/samba-conductor/sc-sync-plan-1600.webp" data-full="../../assets/projects/samba-conductor/sc-sync-plan-1600.webp" data-width="1366" data-height="1100">
+                  <picture>
+                    <source srcset="../../assets/projects/samba-conductor/sc-sync-plan-720.webp" type="image/webp" />
+                    <img src="../../assets/projects/samba-conductor/sc-sync-plan-720.jpg" width="720" height="580" loading="lazy" decoding="async" alt="A sync plan that exceeds the safety limits: 2499 accounts to create against a limit of 50, with a typed confirmation bound to the plan's digest." />
+                  </picture>
+                </a>
+                <figcaption>
+                  <span class="shot-caption">A plan over the safety limits waits for a typed confirmation bound to that exact plan.</span>
+                  <span class="shot-meta">conductor-sync, 2026-10</span>
+                </figcaption>
+              </figure>
+            </li>
+            <li class="shot">
+              <figure>
+                <a class="shot-link" href="../../assets/gallery/sc-self-service-1600.webp" data-full="../../assets/gallery/sc-self-service-1600.webp" data-width="1366" data-height="900">
+                  <picture>
+                    <source srcset="../../assets/gallery/sc-self-service-720.webp" type="image/webp" />
+                    <img src="../../assets/gallery/sc-self-service-720.jpg" width="720" height="474" loading="lazy" decoding="async" alt="Branded self-service page with a maintenance notice, account details and contact details of a test user." />
+                  </picture>
+                </a>
+                <figcaption>
+                  <span class="shot-caption">The self-service portal with an organization's branding.</span>
+                  <span class="shot-meta">conductor, 2026-10</span>
+                </figcaption>
+              </figure>
+            </li>
+            <li class="shot">
+              <figure>
+                <a class="shot-link" href="../../assets/gallery/sc-backups-1600.webp" data-full="../../assets/gallery/sc-backups-1600.webp" data-width="1366" data-height="1024">
+                  <picture>
+                    <source srcset="../../assets/gallery/sc-backups-720.webp" type="image/webp" />
+                    <img src="../../assets/gallery/sc-backups-720.jpg" width="720" height="540" loading="lazy" decoding="async" alt="Backups page with the age of the last good backup, the measured restore time, a list of backups and restore drill results." />
+                  </picture>
+                </a>
+                <figcaption>
+                  <span class="shot-caption">Encrypted backups and restore drills, with the measured restore time.</span>
+                  <span class="shot-meta">conductor-backup, 2026-10</span>
+                </figcaption>
+              </figure>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="status" class="section" aria-labelledby="status-title">
+        <div class="wrap">
+          <p class="eyebrow">Status</p>
+          <h2 id="status-title">Pre-release, being validated.</h2>
+          <div class="status-grid">
+            <div class="prose">
+              <p class="eyebrow">Checked in the lab</p>
+              <ul>
+                <li>The whole console, desktop and mobile, against a domain with two domain controllers.</li>
+                <li>A full-forest restore exercise from encrypted backups.</li>
+                <li>Single sign-on with an independent OpenID Connect client, Grafana and a SAML service provider.</li>
+                <li>Install, upgrade and removal of the packages, including on Basalt OS with SELinux enforcing.</li>
+              </ul>
+            </div>
+            <div class="prose">
+              <p class="eyebrow">Not yet</p>
+              <ul>
+                <li>A tagged release. Today's packages are built from the main branches for testing.</li>
+                <li>A stable configuration format: settings may still change between builds.</li>
+              </ul>
+              <p>
+                The lab runs are written down in each repository, in the <code>docs/usage-*.md</code>
+                files, with what was set up, run and checked.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="install" class="section" aria-labelledby="install-title">
+        <div class="wrap prose">
+          <p class="eyebrow">Install</p>
+          <h2 id="install-title">Packages for Debian, Ubuntu, Fedora and Basalt OS.</h2>
+          <p>
+            Samba Conductor runs on a Samba AD domain controller (Samba 4.19 or later, functional level
+            2016), as native systemd services. Packages are signed with the OpenBasalt release key.
+            Before you trust the key, check that its fingerprint is
+            <span class="fingerprint">3601 7348 42BD 4E48 2D19 DE4A E4EE D5EC A395 B302</span>, and
+            stop if it differs.
+          </p>
+
+          <h3>Debian 13 and Ubuntu (APT)</h3>
+          <p>Debian 13, Ubuntu 24.04 and 26.04, amd64.</p>
+          <pre><code>curl -fsSLo /tmp/openbasalt-release-key.asc https://obpkg.org/keys/openbasalt-release-key.asc
+gpg --show-keys --with-fingerprint /tmp/openbasalt-release-key.asc
+sudo install -d -m 0755 /etc/apt/keyrings
+sudo gpg --dearmor -o /etc/apt/keyrings/openbasalt.gpg /tmp/openbasalt-release-key.asc
+sudo chmod 0644 /etc/apt/keyrings/openbasalt.gpg
+printf 'Types: deb\nURIs: https://obpkg.org/apt\nSuites: stable\nComponents: main\nSigned-By: /etc/apt/keyrings/openbasalt.gpg\n' |
+  sudo tee /etc/apt/sources.list.d/openbasalt.sources
+sudo apt update
+sudo apt install conductor</code></pre>
+
+          <h3>Fedora 44 and Basalt OS (RPM)</h3>
+          <p>
+            On Basalt OS the basalt-tools repository is configured by default. On Fedora 44, add it
+            in <code>/etc/yum.repos.d/basalt-tools.repo</code>:
+          </p>
+          <pre><code>[basalt-tools]
+name=Basalt OS tools $releasever - $basearch
+baseurl=https://obpkg.org/basalt-tools/$releasever/$basearch/
+enabled=1
+gpgcheck=1
+repo_gpgcheck=1
+gpgkey=https://obpkg.org/keys/openbasalt-release-key.asc</code></pre>
+          <p>
+            The first time dnf uses the key it shows the fingerprint and asks to import it: compare it
+            with the one above. Then:
+          </p>
+          <pre><code>sudo dnf install conductor</code></pre>
+          <p>
+            The SELinux policy package comes with it wherever the targeted policy is installed.
+          </p>
+
+          <h3>Next steps</h3>
+          <p>
+            The same repositories carry every component: <code>conductor</code>,
+            <code>conductor-idp</code>, <code>conductor-sync</code>, <code>conductor-backup</code> and
+            <code>conductor-files</code>. Nothing is enabled after installing. The web certificate,
+            <code>conductor setup</code>, starting the services and enrolling the first administrator
+            are in the install guides:
+          </p>
+          <ul>
+            <li><a href="https://github.com/openbasalt/samba-conductor/blob/main/docs/install.md">Install on Debian and Ubuntu</a></li>
+            <li><a href="https://github.com/openbasalt/samba-conductor/blob/main/docs/install-fedora.md">Install on Basalt OS and Fedora</a></li>
+            <li><a href="https://github.com/openbasalt/samba-conductor-docs/blob/main/verifying-releases.md">Verifying releases and repositories</a></li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="source" class="section" aria-labelledby="source-title">
+        <div class="wrap">
+          <p class="eyebrow">Source and documentation</p>
+          <h2 id="source-title">Seven repositories, one family.</h2>
+          <p class="section-intro">
+            Each component lives in its own repository and is deployed on its own. Start with the
+            documentation repository: architecture, packaging, release verification and testing.
+          </p>
+          <ul class="repo-links" aria-label="Samba Conductor repositories">
+            <li><a href="https://github.com/openbasalt/samba-conductor-docs">openbasalt/samba-conductor-docs</a>: documentation across the components</li>
+            <li><a href="https://github.com/openbasalt/samba-conductor">openbasalt/samba-conductor</a>: the web console, self-service and the privileged helper</li>
+            <li><a href="https://github.com/openbasalt/samba-conductor-idp">openbasalt/samba-conductor-idp</a>: OpenID Connect and SAML 2.0 identity provider</li>
+            <li><a href="https://github.com/openbasalt/samba-conductor-sync">openbasalt/samba-conductor-sync</a>: provisioning to Google Workspace</li>
+            <li><a href="https://github.com/openbasalt/samba-conductor-backup">openbasalt/samba-conductor-backup</a>: encrypted backups, restore and restore drills</li>
+            <li><a href="https://github.com/openbasalt/samba-conductor-files">openbasalt/samba-conductor-files</a>: shares on domain-member file servers</li>
+            <li><a href="https://github.com/openbasalt/samba-conductor-ad">openbasalt/samba-conductor-ad</a>: the Go library for Samba AD access</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="license" class="section" aria-labelledby="license-title">
+        <div class="wrap prose">
+          <p class="eyebrow">License</p>
+          <h2 id="license-title">Apache License 2.0.</h2>
+          <p>
+            Every Samba Conductor repository is licensed under the
+            <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache License, Version 2.0</a>.
+            Security problems go through each repository's SECURITY.md, not public issues.
+          </p>
+          <p>
+            Samba Conductor exists because of Samba and the people who build it. It is an independent
+            project, not affiliated with or endorsed by the Samba Team.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <dialog class="lightbox" aria-label="Image viewer">
+      <div class="lightbox-bar">
+        <span class="lb-count" aria-live="polite"></span>
+        <button class="lb-btn lb-close" type="button" aria-label="Close">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18" /></svg>
+        </button>
+      </div>
+      <div class="lightbox-stage">
+        <button class="lb-btn lb-prev" type="button" aria-label="Previous image">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7" /></svg>
+        </button>
+        <img alt="" />
+        <button class="lb-btn lb-next" type="button" aria-label="Next image">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7" /></svg>
+        </button>
+      </div>
+      <p class="lightbox-caption"><span class="shot-caption"></span><span class="shot-meta"></span></p>
+    </dialog>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <div>
+          <p>OpenBasalt. Open source on solid ground.</p>
+          <p>This site counts visits with <a href="https://umami.is">Umami</a>, self-hosted: no cookies, no personal data, and it honours Do Not Track.</p>
+        </div>
+        <div class="footer-side">
+          <ul class="social" aria-label="OpenBasalt elsewhere">
+            <li><a href="https://github.com/basalt-os" rel="me noopener"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>basalt-os on GitHub</a></li>
+            <li><a href="https://github.com/openbasalt" rel="me noopener"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>openbasalt on GitHub</a></li>
+            <li><a href="https://x.com/openbasalt" rel="me noopener" aria-label="OpenBasalt on X"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="currentColor"><path d="M18.24 2.25h3.31l-7.23 8.26 8.5 11.24h-6.65l-5.21-6.82-5.97 6.82H1.68l7.73-8.84L1.25 2.25h6.83l4.71 6.23zm-1.16 17.52h1.83L7.08 4.13H5.12z"/></svg>X</a></li>
+            <li><a href="https://www.youtube.com/@OpenBasalt" rel="me noopener" aria-label="OpenBasalt on YouTube"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4l6.2 3.6z"/></svg>YouTube</a></li>
+          </ul>
+          <ul class="footer-links">
+            <li><a href="https://github.com/openbasalt/openbasalt.org">Site source</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+    <script src="../../assets/gallery.js?v=1" defer></script>
+  </body>
+</html>
