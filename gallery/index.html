@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Gallery: Samba Conductor and Basalt OS, OpenBasalt</title>
+    <meta
+      name="description"
+      content="Screenshots of Samba Conductor, the web administrator and self-service portal for Samba Active Directory, and a pointer to the Basalt OS gallery. Pre-release preview; it may change."
+    />
+    <link rel="canonical" href="https://openbasalt.org/gallery/" />
+    <meta name="theme-color" content="#f6f5f2" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#14171b" media="(prefers-color-scheme: dark)" />
+
+    <link rel="icon" href="../favicon.ico" sizes="32x32" />
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="OpenBasalt" />
+    <meta property="og:title" content="OpenBasalt gallery: Samba Conductor and Basalt OS" />
+    <meta
+      property="og:description"
+      content="Screenshots of Samba Conductor from our test lab, and a pointer to the Basalt OS gallery. Pre-release preview."
+    />
+    <meta property="og:url" content="https://openbasalt.org/gallery/" />
+    <meta property="og:image" content="https://openbasalt.org/assets/gallery/sc-dashboard-720.jpg" />
+    <meta property="og:image:alt" content="The Samba Conductor dashboard." />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="stylesheet" href="../assets/site.css?v=4" />
+    <!-- Umami, self-hosted. No cookies, no cross-site identifier, no personal
+         data. data-do-not-track makes it stand down for anyone whose browser
+         asks not to be tracked, and data-domains keeps it quiet on forks and
+         local previews. umami-filter.js (data-before-send) leaves automated
+         browsers out of the count without blocking them. -->
+    <script defer src="../assets/umami-filter.js?v=1"></script>
+    <script
+      defer
+      src="https://analytics.openbasalt.org/script.js"
+      data-website-id="fb8b8b57-2eb4-46c1-8e54-4c75de886963"
+      data-domains="openbasalt.org,www.openbasalt.org"
+      data-do-not-track="true"
+      data-before-send="umamiBeforeSend"
+    ></script>
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <div class="wrap">
+        <a class="brand" href="../" aria-label="OpenBasalt home">
+          <svg viewBox="0 0 512 512" aria-hidden="true" focusable="false">
+            <path class="mark-ring" d="M 445.44,143.36 L 460.80,343.04 L 286.72,471.04 L 71.68,378.88 L 56.32,163.84 L 266.24,46.08" fill="none" stroke-width="56.32" stroke-linejoin="round" stroke-linecap="round" />
+            <polygon class="mark-core" points="256.00,179.20 327.68,235.52 302.08,322.56 204.80,317.44 184.32,230.40" />
+          </svg>
+          <span class="wordmark" aria-hidden="true">open<span>basalt</span></span>
+        </a>
+        <nav class="nav" aria-label="Main">
+          <a class="nav-optional" href="../#principles">Principles</a>
+          <a href="../#projects">Projects</a>
+          <a href="./" aria-current="page">Gallery</a>
+          <a href="https://github.com/openbasalt">GitHub</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="wrap page-head" aria-labelledby="page-title">
+        <p class="eyebrow">Gallery</p>
+        <h1 id="page-title">See what we are building.</h1>
+        <p class="lede">
+          Screens of our projects as they are today, captured in a test lab with made-up people,
+          names and addresses. Select an image to see it larger.
+        </p>
+        <div class="preview-banner" role="note">
+          <span class="status-dot" aria-hidden="true"></span>
+          <div>
+            <p>Preview. These projects are young and none has a stable release yet. What you see here may change.</p>
+            <p>Samba Conductor is a pre-release; Basalt OS is pre-alpha and not installable yet.</p>
+          </div>
+        </div>
+        <ul class="jump" aria-label="Sections">
+          <li><a href="#admin">Samba Conductor: administration</a></li>
+          <li><a href="#self-service">Samba Conductor: sign-in and self-service</a></li>
+          <li><a href="#basalt-os">Basalt OS</a></li>
+        </ul>
+      </section>
+
+      <!-- Videos: hidden until at least one video is listed in the JSON below.
+           Each entry: {"id": "<YouTube video id>", "title": "...", "caption": "..."}.
+           The player loads from youtube-nocookie.com only after a click. -->
+      <section id="videos" class="gallery-section" aria-labelledby="videos-title" hidden>
+        <div class="wrap">
+          <h2 id="videos-title">Videos</h2>
+          <p class="section-intro">
+            Short demos. The player is loaded from YouTube (youtube-nocookie.com) only when you
+            choose to play a video; until then nothing is requested from YouTube.
+          </p>
+          <ul class="video-list"></ul>
+        </div>
+      </section>
+      <script type="application/json" id="gallery-videos">[]</script>
+
+      <!-- SECTIONS -->
+      <section id="admin" class="gallery-section" aria-labelledby="admin-title">
+        <div class="wrap">
+          <h2 id="admin-title">Samba Conductor: administration</h2>
+          <p class="section-intro">The web administrator for Samba Active Directory. Every change shows the exact directory writes before it is applied.</p>
+          <ul class="shots">
+            <li class="shot">
+              <figure>
+                <a class="shot-link" href="../assets/gallery/sc-dashboard-1600.webp" data-full="../assets/gallery/sc-dashboard-1600.webp" data-width="1366" data-height="1024">
+                  <picture>
+                    <source srcset="../assets/gallery/sc-dashboard-720.webp" type="image/webp" />
+                    <img src="../assets/gallery/sc-dashboard-720.jpg" width="720" height="540" loading="lazy" decoding="async" alt="Samba Conductor dashboard with counts of users, groups and computers, locked accounts, expiring accounts and a recent activity table." />
+                  </picture>
+                </a>
+                <figcaption>
+                  <span class="shot-caption">Dashboard: the domain at a glance, locked and expiring accounts, recent activity.</span>
+                  <span class="shot-meta">conductor, 2026-10</span>
+                </figcaption>
+              </figure>
+            </li>
+            <li class="shot">
+              <figure>
+                <a class="shot-link" href="../assets/gallery/sc-users-1600.webp" data-full="../assets/gallery/sc-users-1600.webp" data-width="1366" data-height="900">
+                  <picture>
+                    <source srcset="../assets/gallery/sc-users-720.webp" type="image/webp" />
+                    <img src="../assets/gallery/sc-users-720.jpg" width="720" height="474" loading="lazy" decoding="async" alt="Users page with a search box and a table of test users with their e-mail and status." />
+                  </picture>
+                </a>
+                <figcaption>
+                  <span class="shot-caption">Users: search the directory and open any account.</span>
+                  <span class="shot-meta">conductor, 2026-10</span>
+                </figcaption>
+              </figure>
+            </li>
+            <li class="shot">
+              <figure>
+                <a class="shot-link" href="../assets/gallery/sc-preview-1600.webp" data-full="../assets/gallery/sc-preview-1600.webp" data-width="1366" data-height="780">
+                  <picture>
+                    <source srcset="../assets/gallery/sc-preview-720.webp" type="image/webp" />
+                    <img src="../assets/gallery/sc-preview-720.jpg" width="720" height="411" loading="lazy" decoding="async" alt="New user preview listing the LDAP changes that will be sent, with the password redacted, and Apply and Cancel buttons." />
+                  </picture>
+                </a>
+                <figcaption>
+                  <span class="shot-caption">Exact changes: the LDAP writes are shown before you apply them. Passwords are never displayed.</span>
+                  <span class="shot-meta">conductor, 2026-10</span>
+                </figcaption>
+              </figure>
+            </li>
+            <li class="shot">
+              <figure>
+                <a class="shot-link" href="../assets/gallery/sc-bulk-1600.webp" data-full="../assets/gallery/sc-bulk-1600.webp" data-width="1366" data-height="860">
+                  <picture>
+                    <source srcset="../assets/gallery/sc-bulk-720.webp" type="image/webp" />
+                    <img src="../assets/gallery/sc-bulk-720.jpg" width="720" height="453" loading="lazy" decoding="async" alt="Create users from CSV page waiting for confirmation, asking for the password and a recovery code, with three rows not applied yet." />
+                  </picture>
+                </a>
+                <figcaption>
+                  <span class="shot-caption">Bulk changes from a CSV file: checked row by row, applied only after you sign in again.</span>
+                  <span class="shot-meta">conductor, 2026-10</span>
+                </figcaption>
+              </figure>
+            </li>
+            <li class="shot">
+              <figure>
+                <a class="shot-link" href="../assets/gallery/sc-backups-1600.webp" data-full="../assets/gallery/sc-backups-1600.webp" data-width="1366" data-height="1024">
+                  <picture>
+                    <source srcset="../assets/gallery/sc-backups-720.webp" type="image/webp" />
+                    <img src="../assets/gallery/sc-backups-720.jpg" width="720" height="540" loading="lazy" decoding="async" alt="Backups page with the age of the last good backup, the measured restore time, a list of backups and restore drill results." />
+                  </picture>
+                </a>
+                <figcaption>
+                  <span class="shot-caption">Encrypted backups and restore drills that prove a backup can really be restored.</span>
+                  <span class="shot-meta">conductor-backup, 2026-10</span>
+                </figcaption>
+              </figure>
+            </li>
+            <li class="shot">
+              <figure>
+                <a class="shot-link" href="../assets/gallery/sc-share-1600.webp" data-full="../assets/gallery/sc-share-1600.webp" data-width="1366" data-height="1024">
+                  <picture>
+                    <source srcset="../assets/gallery/sc-share-720.webp" type="image/webp" />
+                    <img src="../assets/gallery/sc-share-720.jpg" width="720" height="540" loading="lazy" decoding="async" alt="Share page for a test share with its network path, access group, share permissions and folder permissions." />
+                  </picture>
+                </a>
+                <figcaption>
+                  <span class="shot-caption">File servers: a share with its access, share permissions and folder permissions in one place.</span>
+                  <span class="shot-meta">conductor-files, 2026-10</span>
+                </figcaption>
+              </figure>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="self-service" class="gallery-section" aria-labelledby="self-service-title">
+        <div class="wrap">
+          <h2 id="self-service-title">Samba Conductor: sign-in and self-service</h2>
+          <p class="section-intro">Single sign-on for other applications and a self-service portal for everyone in the domain, with your own branding.</p>
+          <ul class="shots">
+            <li class="shot">
+              <figure>
+                <a class="shot-link" href="../assets/gallery/sc-sso-1600.webp" data-full="../assets/gallery/sc-sso-1600.webp" data-width="1366" data-height="1024">
+                  <picture>
+                    <source srcset="../assets/gallery/sc-sso-720.webp" type="image/webp" />
+                    <img src="../assets/gallery/sc-sso-720.jpg" width="720" height="540" loading="lazy" decoding="async" alt="Single sign-on overview with counts of applications and sign-ins, actions and the identity provider endpoints of a test domain." />
+                  </picture>
+                </a>
+                <figcaption>
+                  <span class="shot-caption">Single sign-on with OpenID Connect and SAML 2.0, using the domain account.</span>
+                  <span class="shot-meta">conductor-idp, 2026-10</span>
+                </figcaption>
+              </figure>
+            </li>
+            <li class="shot">
+              <figure>
+                <a class="shot-link" href="../assets/gallery/sc-consent-1600.webp" data-full="../assets/gallery/sc-consent-1600.webp" data-width="1366" data-height="620">
+                  <picture>
+                    <source srcset="../assets/gallery/sc-consent-720.webp" type="image/webp" />
+                    <img src="../assets/gallery/sc-consent-720.jpg" width="720" height="327" loading="lazy" decoding="async" alt="Consent page: Example RP wants to use your account, listing what the application gets, with Allow and Deny buttons." />
+                  </picture>
+                </a>
+                <figcaption>
+                  <span class="shot-caption">Consent: what an application receives about you, before you allow it.</span>
+                  <span class="shot-meta">conductor-idp, 2026-10</span>
+                </figcaption>
+              </figure>
+            </li>
+            <li class="shot">
+              <figure>
+                <a class="shot-link" href="../assets/gallery/sc-branding-1600.webp" data-full="../assets/gallery/sc-branding-1600.webp" data-width="1366" data-height="1100">
+                  <picture>
+                    <source srcset="../assets/gallery/sc-branding-720.webp" type="image/webp" />
+                    <img src="../assets/gallery/sc-branding-720.jpg" width="720" height="580" loading="lazy" decoding="async" alt="Branding preview with the sign-in page of a made-up company in the light and dark theme, and a warning about low contrast." />
+                  </picture>
+                </a>
+                <figcaption>
+                  <span class="shot-caption">Branding preview in the light and dark theme, with a contrast check before saving.</span>
+                  <span class="shot-meta">conductor, 2026-10</span>
+                </figcaption>
+              </figure>
+            </li>
+            <li class="shot">
+              <figure>
+                <a class="shot-link" href="../assets/gallery/sc-self-service-1600.webp" data-full="../assets/gallery/sc-self-service-1600.webp" data-width="1366" data-height="900">
+                  <picture>
+                    <source srcset="../assets/gallery/sc-self-service-720.webp" type="image/webp" />
+                    <img src="../assets/gallery/sc-self-service-720.jpg" width="720" height="474" loading="lazy" decoding="async" alt="Branded self-service page with a maintenance notice, account details and contact details of a test user." />
+                  </picture>
+                </a>
+                <figcaption>
+                  <span class="shot-caption">The self-service portal with that branding: account, contact details, password and security keys.</span>
+                  <span class="shot-meta">conductor, 2026-10</span>
+                </figcaption>
+              </figure>
+            </li>
+            <li class="shot">
+              <figure>
+                <a class="shot-link" href="../assets/gallery/sc-idp-login-1600.webp" data-full="../assets/gallery/sc-idp-login-1600.webp" data-width="1366" data-height="900">
+                  <picture>
+                    <source srcset="../assets/gallery/sc-idp-login-720.webp" type="image/webp" />
+                    <img src="../assets/gallery/sc-idp-login-720.jpg" width="720" height="474" loading="lazy" decoding="async" alt="Branded sign-in page in Portuguese with a dark card over a blue background and a maintenance notice." />
+                  </picture>
+                </a>
+                <figcaption>
+                  <span class="shot-caption">The branded sign-in page, in Portuguese and the dark theme.</span>
+                  <span class="shot-meta">conductor-idp, 2026-10</span>
+                </figcaption>
+              </figure>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <!-- /SECTIONS -->
+
+      <section id="basalt-os" class="gallery-section" aria-labelledby="basalt-title">
+        <div class="wrap">
+          <h2 id="basalt-title">Basalt OS</h2>
+          <div class="teaser">
+            <a href="https://basalt-os.org/gallery/" tabindex="-1" aria-hidden="true">
+              <picture>
+                <source srcset="../assets/gallery/basalt-teaser-720.webp" type="image/webp" />
+                <img src="../assets/gallery/basalt-teaser-720.jpg" width="720" height="405" loading="lazy" decoding="async" alt="" />
+              </picture>
+            </a>
+            <div>
+              <h3>The Basalt OS gallery</h3>
+              <p>
+                The boot and login screens, the desktop, voice and the assistant, the Security and
+                Activity app, the installer and design mockups, each with its version and date.
+              </p>
+              <div class="section-links">
+                <a class="button primary" href="https://basalt-os.org/gallery/">Basalt OS gallery</a>
+                <a class="button" href="https://basalt-os.org/security/">How Basalt OS protects you</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="more-title">
+        <div class="wrap">
+          <p class="eyebrow">Follow along</p>
+          <h2 id="more-title">New screens land as the work does.</h2>
+          <p class="section-intro">
+            Samba Conductor's source and documentation are on
+            <a href="https://github.com/openbasalt/samba-conductor">github.com/openbasalt/samba-conductor</a>.
+            Follow the projects for new screens and videos.
+          </p>
+          <div class="section-links">
+          <ul class="social" aria-label="OpenBasalt elsewhere">
+            <li><a href="https://github.com/basalt-os" rel="me noopener"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>basalt-os on GitHub</a></li>
+            <li><a href="https://github.com/openbasalt" rel="me noopener"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>openbasalt on GitHub</a></li>
+            <li><a href="https://x.com/openbasalt" rel="me noopener" aria-label="OpenBasalt on X"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="currentColor"><path d="M18.24 2.25h3.31l-7.23 8.26 8.5 11.24h-6.65l-5.21-6.82-5.97 6.82H1.68l7.73-8.84L1.25 2.25h6.83l4.71 6.23zm-1.16 17.52h1.83L7.08 4.13H5.12z"/></svg>X</a></li>
+            <li><a href="https://www.youtube.com/@OpenBasalt" rel="me noopener" aria-label="OpenBasalt on YouTube"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4l6.2 3.6z"/></svg>YouTube</a></li>
+          </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <dialog class="lightbox" aria-label="Image viewer">
+      <div class="lightbox-bar">
+        <span class="lb-count" aria-live="polite"></span>
+        <button class="lb-btn lb-close" type="button" aria-label="Close">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18" /></svg>
+        </button>
+      </div>
+      <div class="lightbox-stage">
+        <button class="lb-btn lb-prev" type="button" aria-label="Previous image">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7" /></svg>
+        </button>
+        <img alt="" />
+        <button class="lb-btn lb-next" type="button" aria-label="Next image">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7" /></svg>
+        </button>
+      </div>
+      <p class="lightbox-caption"><span class="shot-caption"></span><span class="shot-meta"></span></p>
+    </dialog>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <div>
+          <p>OpenBasalt. Open source on solid ground.</p>
+          <p>This site counts visits with <a href="https://umami.is">Umami</a>, self-hosted: no cookies, no personal data, and it honours Do Not Track.</p>
+        </div>
+        <div class="footer-side">
+          <ul class="social" aria-label="OpenBasalt elsewhere">
+            <li><a href="https://github.com/basalt-os" rel="me noopener"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>basalt-os on GitHub</a></li>
+            <li><a href="https://github.com/openbasalt" rel="me noopener"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>openbasalt on GitHub</a></li>
+            <li><a href="https://x.com/openbasalt" rel="me noopener" aria-label="OpenBasalt on X"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="currentColor"><path d="M18.24 2.25h3.31l-7.23 8.26 8.5 11.24h-6.65l-5.21-6.82-5.97 6.82H1.68l7.73-8.84L1.25 2.25h6.83l4.71 6.23zm-1.16 17.52h1.83L7.08 4.13H5.12z"/></svg>X</a></li>
+            <li><a href="https://www.youtube.com/@OpenBasalt" rel="me noopener" aria-label="OpenBasalt on YouTube"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4l6.2 3.6z"/></svg>YouTube</a></li>
+          </ul>
+          <ul class="footer-links">
+            <li><a href="https://github.com/openbasalt/openbasalt.org">Site source</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+    <script src="../assets/gallery.js?v=1" defer></script>
+  </body>
+</html>
