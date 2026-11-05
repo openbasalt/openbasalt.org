@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Projects: Samba Conductor, Basalt OS and obpkg.org, OpenBasalt</title>
-    <meta name="description" content="The OpenBasalt projects: Samba Conductor, a web console for Samba Active Directory; Basalt OS, a Linux distribution built security and AI first; and obpkg.org, our signed package repositories. Young projects, each with its own release cycle." />
+    <title>Projects: Samba Conductor, cotty, Basalt OS and obpkg.org, OpenBasalt</title>
+    <meta name="description" content="The OpenBasalt projects: Samba Conductor, a web console for Samba Active Directory; cotty, a terminal shared by a person and an AI agent; Basalt OS, a Linux distribution built security and AI first; and obpkg.org, our signed package repositories. Young projects, each with its own release cycle." />
     <link rel="canonical" href="https://openbasalt.org/projects/" />
     <meta name="theme-color" content="#f6f5f2" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#14171b" media="(prefers-color-scheme: dark)" />
@@ -16,8 +16,8 @@
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="OpenBasalt" />
     <meta property="og:locale" content="en_US" />
-    <meta property="og:title" content="OpenBasalt projects: Samba Conductor, Basalt OS and obpkg.org" />
-    <meta property="og:description" content="Independent open infrastructure projects, each with its own repository and release cycle. All young: Samba Conductor has signed releases, Basalt OS is pre-alpha." />
+    <meta property="og:title" content="OpenBasalt projects: Samba Conductor, cotty, Basalt OS and obpkg.org" />
+    <meta property="og:description" content="Independent open infrastructure projects, each with its own repository and release cycle. All young: Samba Conductor has signed releases, cotty is in testing, Basalt OS is pre-alpha." />
     <meta property="og:url" content="https://openbasalt.org/projects/" />
     <meta property="og:image" content="https://openbasalt.org/assets/og/projects.jpg?v=2" />
     <meta property="og:image:type" content="image/jpeg" />
@@ -26,8 +26,8 @@
     <meta property="og:image:alt" content="OpenBasalt projects: the Samba Conductor dashboard and the Basalt OS login screen." />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@openbasalt" />
-    <meta name="twitter:title" content="OpenBasalt projects: Samba Conductor, Basalt OS and obpkg.org" />
-    <meta name="twitter:description" content="Independent open infrastructure projects, each with its own repository and release cycle. All young: Samba Conductor has signed releases, Basalt OS is pre-alpha." />
+    <meta name="twitter:title" content="OpenBasalt projects: Samba Conductor, cotty, Basalt OS and obpkg.org" />
+    <meta name="twitter:description" content="Independent open infrastructure projects, each with its own repository and release cycle. All young: Samba Conductor has signed releases, cotty is in testing, Basalt OS is pre-alpha." />
     <meta name="twitter:image" content="https://openbasalt.org/assets/og/projects.jpg?v=2" />
     <meta name="twitter:image:alt" content="OpenBasalt projects: the Samba Conductor dashboard and the Basalt OS login screen." />
 
@@ -62,6 +62,11 @@
           "@type": "SoftwareApplication",
           "name": "Samba Conductor",
           "url": "https://openbasalt.org/projects/samba-conductor/"
+        },
+        {
+          "@type": "SoftwareApplication",
+          "name": "cotty",
+          "url": "https://openbasalt.org/projects/cotty/"
         },
         {
           "@type": "SoftwareApplication",
@@ -104,8 +109,8 @@
         <h1 id="page-title">Columns, built in the open.</h1>
         <p class="lede">
           Each OpenBasalt project lives in its own repository, with its own purpose and release
-          cycle. All of them are young. Samba Conductor has signed releases, the latest 0.2.0; Basalt
-          OS is pre-alpha.
+          cycle. All of them are young. Samba Conductor has signed releases, the latest 0.2.0; cotty is
+          in testing; Basalt OS is pre-alpha.
         </p>
       </section>
 
@@ -127,6 +132,22 @@
               <div class="actions">
                 <a class="button primary" href="samba-conductor/">Project page</a>
                 <a class="button" href="https://github.com/openbasalt/samba-conductor">Source</a>
+              </div>
+            </article>
+            <article class="project" aria-labelledby="cotty-title">
+              <div class="project-head">
+                <h3 id="cotty-title"><a href="cotty/">cotty</a></h3>
+                <span class="tag">Testing</span>
+              </div>
+              <p>
+                A terminal shared by a person and an AI coding agent. The agent types in your session
+                through MCP while you watch and can take over. What you type at a password prompt never
+                reaches the agent, listed secrets are masked in what it reads, and the agent runs
+                confined. Early: test packages only.
+              </p>
+              <div class="actions">
+                <a class="button primary" href="cotty/">Project page</a>
+                <a class="button" href="https://github.com/openbasalt/cotty">Source</a>
               </div>
             </article>
             <article class="project" aria-labelledby="bo-title">

@@ -8,8 +8,9 @@ tag and its small bot filter, and the gallery viewer, all described below. Serve
 
 ```
 index.html        home page
-projects/index.html  projects: Samba Conductor, Basalt OS and obpkg.org
+projects/index.html  projects: Samba Conductor, cotty, Basalt OS and obpkg.org
 projects/samba-conductor/index.html  Samba Conductor: features, screens, status, install, repositories
+projects/cotty/index.html  cotty: what it does, screens, status, install, documentation
 gallery/index.html  gallery: Samba Conductor screenshots and a pointer to the Basalt OS gallery
 404.html          not found page
 assets/site.css   styles (light and dark via prefers-color-scheme)
@@ -44,6 +45,14 @@ one-line caption and its source and date, in three files under
 viewer). Only lab captures with made-up names, no real accounts, e-mail
 addresses, internal host names or addresses, passwords or keys. Without
 JavaScript every thumbnail is a link to the large image.
+
+Terminal screens, such as the cotty ones in `assets/projects/cotty/`, come
+from a real session in a private tmux server: `tmux capture-pane -e` of the
+pane, drawn cell by cell to PNG with its colours, then sized like the rest.
+The 720 px thumbnails of wide terminals are the left part of the capture at
+16:10, so the gallery crop stays readable; the 1600 px file is the whole
+capture. Use a throwaway directory, a plain prompt and a clean environment,
+so no home paths, host names or personal data end up in the image.
 
 Videos: the Videos section stays hidden until the JSON block
 `#gallery-videos` in `gallery/index.html` lists at least one video, as

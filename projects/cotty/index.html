@@ -1,0 +1,503 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>cotty: a terminal shared by a person and an AI agent, OpenBasalt</title>
+    <meta name="description" content="cotty is a terminal session that you and an AI coding agent use at the same time. What you type at a password prompt never reaches the agent, listed secrets are masked in what it reads, and the agent runs confined. Linux, testing channel, Apache-2.0." />
+    <link rel="canonical" href="https://openbasalt.org/projects/cotty/" />
+    <meta name="theme-color" content="#f6f5f2" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#14171b" media="(prefers-color-scheme: dark)" />
+
+    <link rel="icon" href="../../favicon.ico" sizes="32x32" />
+    <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="OpenBasalt" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:title" content="cotty: a terminal shared by a person and an AI agent" />
+    <meta property="og:description" content="You and an AI coding agent work in one real terminal session. Password prompts stay with you, listed secrets are masked, and the agent runs confined. Early, in the testing channel." />
+    <meta property="og:url" content="https://openbasalt.org/projects/cotty/" />
+    <meta property="og:image" content="https://openbasalt.org/assets/projects/cotty/og.jpg?v=1" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="cotty, an OpenBasalt project: a shared terminal session where an agent ran commands, and the same session with the lock lit for a password prompt, marked testing." />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@openbasalt" />
+    <meta name="twitter:title" content="cotty: a terminal shared by a person and an AI agent" />
+    <meta name="twitter:description" content="You and an AI coding agent work in one real terminal session. Password prompts stay with you, listed secrets are masked, and the agent runs confined. Early, in the testing channel." />
+    <meta name="twitter:image" content="https://openbasalt.org/assets/projects/cotty/og.jpg?v=1" />
+    <meta name="twitter:image:alt" content="cotty, an OpenBasalt project: a shared terminal session where an agent ran commands, and the same session with the lock lit for a password prompt, marked testing." />
+
+    <link rel="stylesheet" href="../../assets/site.css?v=5" />
+    <!-- Umami, self-hosted. No cookies, no cross-site identifier, no personal
+         data. data-do-not-track makes it stand down for anyone whose browser
+         asks not to be tracked, and data-domains keeps it quiet on forks and
+         local previews. umami-filter.js (data-before-send) leaves automated
+         browsers out of the count without blocking them. -->
+    <script defer src="../../assets/umami-filter.js?v=1"></script>
+    <script
+      defer
+      src="https://analytics.openbasalt.org/script.js"
+      data-website-id="fb8b8b57-2eb4-46c1-8e54-4c75de886963"
+      data-domains="openbasalt.org,www.openbasalt.org"
+      data-do-not-track="true"
+      data-before-send="umamiBeforeSend"
+    ></script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "cotty",
+      "description": "A terminal shared by a person and an AI coding agent: the agent reads the screen and types through MCP, password prompts never reach it, listed secrets are masked in what it reads, and it runs confined.",
+      "url": "https://openbasalt.org/projects/cotty/",
+      "applicationCategory": "DeveloperApplication",
+      "applicationSubCategory": "Terminal",
+      "creativeWorkStatus": "Testing",
+      "softwareVersion": "0.1.0~git20261104225151.6ef77470a88d",
+      "operatingSystem": "Linux (Fedora 44, Basalt OS, Debian 13, Ubuntu 24.04 and 26.04)",
+      "license": "https://www.apache.org/licenses/LICENSE-2.0",
+      "isAccessibleForFree": true,
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "installUrl": "https://openbasalt.org/projects/cotty/#install",
+      "image": "https://openbasalt.org/assets/projects/cotty/og.jpg?v=1",
+      "screenshot": "https://openbasalt.org/assets/projects/cotty/cotty-shared-1600.webp",
+      "sameAs": [
+        "https://github.com/openbasalt/cotty"
+      ],
+      "author": {
+        "@type": "Organization",
+        "name": "OpenBasalt",
+        "url": "https://openbasalt.org/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "OpenBasalt",
+        "url": "https://openbasalt.org/"
+      }
+    }
+    </script>
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <div class="wrap">
+        <a class="brand" href="../../" aria-label="OpenBasalt home">
+          <svg viewBox="0 0 512 512" aria-hidden="true" focusable="false">
+            <path class="mark-ring" d="M 445.44,143.36 L 460.80,343.04 L 286.72,471.04 L 71.68,378.88 L 56.32,163.84 L 266.24,46.08" fill="none" stroke-width="56.32" stroke-linejoin="round" stroke-linecap="round" />
+            <polygon class="mark-core" points="256.00,179.20 327.68,235.52 302.08,322.56 204.80,317.44 184.32,230.40" />
+          </svg>
+          <span class="wordmark" aria-hidden="true">open<span>basalt</span></span>
+        </a>
+        <nav class="nav" aria-label="Main">
+          <a class="nav-optional" href="../../#principles">Principles</a>
+          <a href="../../projects/">Projects</a>
+          <a href="../../gallery/">Gallery</a>
+          <a href="https://github.com/openbasalt">GitHub</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="wrap page-head" aria-labelledby="page-title">
+        <p class="eyebrow">Project</p>
+        <h1 id="page-title">cotty</h1>
+        <p class="lede">
+          A terminal shared by a person and an AI coding agent. You and the agent work in one real
+          terminal session at the same time. You see everything it types, you can type at any moment,
+          and you can take the keyboard back.
+        </p>
+        <div class="preview-banner" role="note">
+          <span class="status-dot" aria-hidden="true"></span>
+          <div>
+            <p>Testing. The current build is 0.1.0~git<wbr />20261104225151.<wbr />6ef77470a88d, in the opt-in testing channels on obpkg.org.</p>
+            <p>
+              cotty is early and not yet reviewed by anyone outside the project, so do not rely on it
+              to protect anything that matters yet. Interfaces, file locations and the protocol may
+              change without notice before the first release. Linux only.
+            </p>
+            <p>
+              <a href="#status">Status</a> and <a href="#install">install</a>.
+            </p>
+          </div>
+        </div>
+        <div class="actions">
+          <a class="button primary" href="https://github.com/openbasalt/cotty">
+            <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+            Source on GitHub
+          </a>
+          <a class="button" href="#install">Install</a>
+          <a class="button" href="#screens">Screens</a>
+        </div>
+        <figure class="lead-shot">
+          <picture>
+            <source media="(max-width: 40rem)" srcset="../../assets/projects/cotty/cotty-shared-720.webp" type="image/webp" width="720" height="450" />
+            <img src="../../assets/projects/cotty/cotty-shared-1600.webp" width="1600" height="473" decoding="async" alt="A cotty session named demo. An agent ran uname, ls and echo in the shell. The status line shows the agent's last command, one agent connected and the assurance level weak." />
+          </picture>
+          <figcaption>Your view of a shared session after an agent ran three commands in it. The status line at the bottom is drawn by cotty.</figcaption>
+        </figure>
+      </section>
+
+      <section id="features" class="section" aria-labelledby="features-title">
+        <div class="wrap">
+          <p class="eyebrow">What it does</p>
+          <h2 id="features-title">One terminal, two at the keyboard.</h2>
+          <p class="section-intro">
+            The agent reads the screen and types through MCP, so any agent CLI that speaks MCP works.
+            Setup notes exist for Claude Code, Codex CLI, Gemini CLI, Cursor CLI and opencode.
+          </p>
+          <ul class="features">
+            <li class="feature">
+              <h3>You see and steer every step</h3>
+              <p>
+                The agent types into the same shell you are looking at. You can type at any moment,
+                take the keyboard, and, with the confirm policy, approve or reject each command line
+                the agent wants to run.
+              </p>
+              <p class="component"><a href="https://github.com/openbasalt/cotty/blob/main/docs/broker.md">docs/broker.md</a></p>
+            </li>
+            <li class="feature">
+              <h3>Password prompts stay with you</h3>
+              <p>
+                cotty detects secret prompts from the terminal's own settings, as with sudo, su, passwd,
+                ssh and read -s. While one is active, a lock shows in your status line and the agent's
+                input is refused. What you type at a password prompt never reaches the agent.
+              </p>
+              <p class="component"><a href="https://github.com/openbasalt/cotty/blob/main/docs/security.md">docs/security.md</a></p>
+            </li>
+            <li class="feature">
+              <h3>Secrets masked in what the agent reads</h3>
+              <p>
+                Values you put on a masking list are hidden in everything the agent reads.
+                <code>cotty secrets add NAME</code> adds a value by reference, and the value is never
+                printed. Private mode, which only you can turn on or off, freezes the agent's view, and rows
+                written meanwhile stay hidden from it.
+              </p>
+              <p class="component"><a href="https://github.com/openbasalt/cotty/blob/main/docs/PLAN.md">docs/PLAN.md</a></p>
+            </li>
+            <li class="feature">
+              <h3>The agent runs confined</h3>
+              <p>
+                <code>cotty agent</code> starts the agent CLI in its own namespaces with Landlock, seccomp
+                and its own cgroup, without root. Your keys, sockets, other terminals and other processes
+                are out of its view, so it cannot go around cotty to read what cotty hides.
+              </p>
+              <p class="component"><a href="https://github.com/openbasalt/cotty/blob/main/docs/confinement.md">docs/confinement.md</a></p>
+            </li>
+            <li class="feature">
+              <h3>An optional guard in the kernel</h3>
+              <p>
+                <code>cotty-guard</code> needs root and the BPF LSM. It enforces the agent rules in the
+                kernel and protects the session's terminal device from every other process.
+              </p>
+              <p class="component"><a href="https://github.com/openbasalt/cotty/blob/main/docs/guard.md">docs/guard.md</a></p>
+            </li>
+            <li class="feature">
+              <h3>An honest assurance level</h3>
+              <p>
+                Each agent connection gets a level, and the status line shows the weakest one:
+                <code>strong</code> with the guard and <code>cotty agent</code>, <code>confined</code>
+                with <code>cotty agent</code> alone, <code>weak</code> without confinement evidence.
+                <code>cotty doctor</code> tells you what your system offers.
+              </p>
+              <p class="component"><a href="https://github.com/openbasalt/cotty#how-it-works">How it works</a></p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="screens" class="gallery-section" aria-labelledby="screens-title">
+        <div class="wrap">
+          <h2 id="screens-title">Screens</h2>
+          <p class="section-intro">
+            Captured from a real session of a locally built cotty in a throwaway directory, drawn
+            from the terminal's own contents. The agent here is a small script that speaks MCP to
+            <code>cotty mcp</code>, the same server agent CLIs start. Because that cotty binary was not
+            installed root-owned, the session reports the level weak. Select an image to see it larger.
+          </p>
+          <ul class="shots">
+            <li class="shot">
+              <figure>
+                <a class="shot-link" href="../../assets/projects/cotty/cotty-shared-1600.webp" data-full="../../assets/projects/cotty/cotty-shared-1600.webp" data-width="1600" data-height="473">
+                  <picture>
+                    <source srcset="../../assets/projects/cotty/cotty-shared-720.webp" type="image/webp" width="720" height="450" />
+                    <img src="../../assets/projects/cotty/cotty-shared-720.jpg" width="720" height="450" loading="lazy" decoding="async" alt="A shared session where an agent ran uname, ls and echo; the status line shows agent, the last command it typed, agents 1 and weak." />
+                  </picture>
+                </a>
+                <figcaption>
+                  <span class="shot-caption">The agent typed three commands in your shell. Its last line stays in the status line.</span>
+                  <span class="shot-meta">cotty new, 2026-11</span>
+                </figcaption>
+              </figure>
+            </li>
+            <li class="shot">
+              <figure>
+                <a class="shot-link" href="../../assets/projects/cotty/cotty-lock-1600.webp" data-full="../../assets/projects/cotty/cotty-lock-1600.webp" data-width="1600" data-height="473">
+                  <picture>
+                    <source srcset="../../assets/projects/cotty/cotty-lock-720.webp" type="image/webp" />
+                    <img src="../../assets/projects/cotty/cotty-lock-720.jpg" width="720" height="450" loading="lazy" decoding="async" alt="The person runs read -s with a Password prompt; the status line shows an amber LOCK bash (not a system program)." />
+                  </picture>
+                </a>
+                <figcaption>
+                  <span class="shot-caption">A secret prompt is active. The lock names the program that asked; amber means it is not a trusted system program.</span>
+                  <span class="shot-meta">cotty new, 2026-11</span>
+                </figcaption>
+              </figure>
+            </li>
+            <li class="shot">
+              <figure>
+                <a class="shot-link" href="../../assets/projects/cotty/cotty-agent-reply-1600.webp" data-full="../../assets/projects/cotty/cotty-agent-reply-1600.webp" data-width="1456" data-height="546">
+                  <picture>
+                    <source srcset="../../assets/projects/cotty/cotty-agent-reply-720.webp" type="image/webp" />
+                    <img src="../../assets/projects/cotty/cotty-agent-reply-720.jpg" width="720" height="450" loading="lazy" decoding="async" alt="The agent's tool reply: error secret_input_active, you may type no, secret prompt ACTIVE with an amber lock, only the person types it." />
+                  </picture>
+                </a>
+                <figcaption>
+                  <span class="shot-caption">At the same moment, the agent's command was refused and it was told to wait for the person.</span>
+                  <span class="shot-meta">cotty mcp, term_run, 2026-11</span>
+                </figcaption>
+              </figure>
+            </li>
+            <li class="shot">
+              <figure>
+                <a class="shot-link" href="../../assets/projects/cotty/cotty-help-1600.webp" data-full="../../assets/projects/cotty/cotty-help-1600.webp" data-width="1600" data-height="473">
+                  <picture>
+                    <source srcset="../../assets/projects/cotty/cotty-help-720.webp" type="image/webp" />
+                    <img src="../../assets/projects/cotty/cotty-help-720.jpg" width="720" height="450" loading="lazy" decoding="async" alt="After the password was typed the shell prints read 19 characters; the status line lists the hotkeys after Ctrl-]." />
+                  </picture>
+                </a>
+                <figcaption>
+                  <span class="shot-caption">Ctrl-] then ? lists the hotkeys in the status line. Above it, the shell got the password; the agent did not.</span>
+                  <span class="shot-meta">cotty new, 2026-11</span>
+                </figcaption>
+              </figure>
+            </li>
+            <li class="shot">
+              <figure>
+                <a class="shot-link" href="../../assets/projects/cotty/cotty-doctor-1600.webp" data-full="../../assets/projects/cotty/cotty-doctor-1600.webp" data-width="1512" data-height="2156">
+                  <picture>
+                    <source srcset="../../assets/projects/cotty/cotty-doctor-720.webp" type="image/webp" />
+                    <img src="../../assets/projects/cotty/cotty-doctor-720.jpg" width="720" height="1027" loading="lazy" decoding="async" alt="cotty doctor output: kernel, Landlock ABI 7, active security modules, yama, tiocsti, user namespaces, seccomp, cgroup, display, binary, secrets, secret-tool and guard checks, then the assurance for cotty agent and for new sessions." />
+                  </picture>
+                </a>
+                <figcaption>
+                  <span class="shot-caption">cotty doctor checks what the system offers, says what is missing, and names the gaps that remain.</span>
+                  <span class="shot-meta">cotty doctor, 2026-11</span>
+                </figcaption>
+              </figure>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="status" class="section" aria-labelledby="status-title">
+        <div class="wrap">
+          <p class="eyebrow">Status</p>
+          <h2 id="status-title">Testing, and early.</h2>
+          <div class="status-grid">
+            <div class="prose">
+              <p class="eyebrow">Where it stands</p>
+              <ul>
+                <li>Test build 0.1.0~git<wbr />20261104225151.<wbr />6ef77470a88d, from commit 6ef7747 of the public repository.</li>
+                <li>Packages <code>cotty</code> and the optional <code>cotty-guard</code>, signed with the OpenBasalt release key, in the opt-in testing channels on obpkg.org: basalt-testing for Fedora 44 and Basalt OS (x86_64), and the APT testing suite for Debian 13, Ubuntu 24.04 and 26.04 (amd64 and arm64).</li>
+                <li>Four internal review rounds found weaknesses that were fixed. What is still open is listed under Known limits in <a href="https://github.com/openbasalt/cotty/blob/main/docs/security.md">docs/security.md</a>.</li>
+                <li>Sessions, confinement and the guard are tested in throwaway lab virtual machines.</li>
+              </ul>
+            </div>
+            <div class="prose">
+              <p class="eyebrow">What cotty is not</p>
+              <ul>
+                <li>Not a sandbox for the commands the agent types into the shared session. Those run with your rights, in your shell: that is the purpose of the tool.</li>
+                <li>Not a guard for secrets typed with echo on, unless you turned on private mode first or the value is on the masking list.</li>
+                <li>Not a defence against a malicious kernel or root.</li>
+                <li>Not a network filter. A confined agent can reach any TCP or UDP service you can, including services on localhost.</li>
+                <li>Masking is not a boundary. It hides values the list knows from what the agent reads; it does not stop an agent from obtaining them another way.</li>
+              </ul>
+              <p>
+                The lock does not light for a password prompt inside a program that relays the terminal
+                in raw mode, such as <code>sudo -i</code>, <code>ssh</code>, <code>tmux</code> or
+                <code>screen</code>: turn private mode on before typing a secret there.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="install" class="section" aria-labelledby="install-title">
+        <div class="wrap prose">
+          <p class="eyebrow">Install</p>
+          <h2 id="install-title">Test packages for Basalt OS, Fedora, Debian and Ubuntu.</h2>
+          <p>
+            cotty needs Linux with user namespaces and Landlock; kernel 6.12 or later is recommended.
+            Packages are signed with the OpenBasalt release key. Before you trust the key, check that
+            its fingerprint is
+            <span class="fingerprint">3601 7348 42BD 4E48 2D19 DE4A E4EE D5EC A395 B302</span>, and
+            stop if it differs.
+          </p>
+
+          <h3>Basalt OS</h3>
+          <p>The basalt-testing repository is configured and turned off. Install from it without turning it on:</p>
+          <pre><code>sudo dnf --enablerepo=basalt-testing install cotty</code></pre>
+
+          <h3>Fedora 44</h3>
+          <p>Download the package and the key, check both, then install the file:</p>
+          <pre><code>curl -fsSLO 'https://obpkg.org/basalt-testing/44/x86_64/cotty-0.1.0~git20261104225151.6ef77470a88d-1.fc44.x86_64.rpm'
+curl -fsSLo openbasalt-release-key.asc https://obpkg.org/keys/openbasalt-release-key.asc
+gpg --show-keys --with-fingerprint openbasalt-release-key.asc
+sudo rpm --import openbasalt-release-key.asc
+rpm -K cotty-0.1.0~git20261104225151.6ef77470a88d-1.fc44.x86_64.rpm
+sudo dnf install ./cotty-0.1.0~git20261104225151.6ef77470a88d-1.fc44.x86_64.rpm</code></pre>
+          <p>
+            <code>rpm -K</code> must report <code>digests signatures OK</code>. To follow new test
+            builds instead, add the basalt-testing repository as described in the
+            <a href="https://github.com/openbasalt/cotty">README</a> and on <a href="https://obpkg.org">obpkg.org</a>.
+          </p>
+
+          <h3>Debian 13 and Ubuntu (APT)</h3>
+          <p>Debian 13, Ubuntu 24.04 and 26.04, amd64 and arm64, from the testing suite:</p>
+          <pre><code>curl -fsSLo /tmp/openbasalt-release-key.asc https://obpkg.org/keys/openbasalt-release-key.asc
+gpg --show-keys --with-fingerprint /tmp/openbasalt-release-key.asc
+sudo install -d -m 0755 /etc/apt/keyrings
+sudo gpg --dearmor -o /etc/apt/keyrings/openbasalt-testing.gpg /tmp/openbasalt-release-key.asc
+printf 'Types: deb\nURIs: https://obpkg.org/apt\nSuites: testing\nComponents: main\nSigned-By: /etc/apt/keyrings/openbasalt-testing.gpg\n' |
+  sudo tee /etc/apt/sources.list.d/openbasalt-testing.sources
+sudo apt update
+sudo apt install cotty</code></pre>
+          <p>On Ubuntu 24.04 and later the package brings the AppArmor profile that lets cotty create user namespaces.</p>
+
+          <h3>The guard (optional)</h3>
+          <p>
+            The guard needs root, the BPF LSM active (<code>bpf</code> listed in
+            <code>/sys/kernel/security/lsm</code>) and BTF. <code>cotty doctor</code> says whether your
+            kernel can run it. On Fedora 44:
+          </p>
+          <pre><code>curl -fsSLO 'https://obpkg.org/basalt-testing/44/x86_64/cotty-guard-0.1.0~git20261104225151.6ef77470a88d-1.fc44.x86_64.rpm'
+rpm -K cotty-guard-0.1.0~git20261104225151.6ef77470a88d-1.fc44.x86_64.rpm
+sudo dnf install ./cotty-guard-0.1.0~git20261104225151.6ef77470a88d-1.fc44.x86_64.rpm
+sudo systemctl enable --now cotty-guard
+cotty guard status</code></pre>
+          <p>
+            On Basalt OS, Debian and Ubuntu, install the <code>cotty-guard</code> package the same way
+            as <code>cotty</code>. Stopping the guard keeps every rule in force, and while it is
+            installed but stopped, <code>cotty attach</code> and <code>cotty new</code> refuse to run.
+            To remove it: <code>sudo systemctl disable --now cotty-guard</code>, then
+            <code>sudo cotty-guard uninstall</code>. <a href="https://github.com/openbasalt/cotty/blob/main/docs/guard.md">docs/guard.md</a>
+            explains how to enable the BPF LSM where it is off.
+          </p>
+
+          <h3>First session</h3>
+          <pre><code>cotty doctor                        # what this system offers, and what is missing
+cotty new --ai --name work          # a shared session, you are attached
+cotty agent -- claude               # in another terminal: the agent, confined</code></pre>
+          <p>
+            Inside the agent, the <code>cotty</code> MCP tools (<code>term_read</code>,
+            <code>term_run</code>, <code>term_type</code>, <code>term_wait</code> and others) act on the
+            shared session. Setup for each agent CLI is in
+            <a href="https://github.com/openbasalt/cotty/tree/main/docs/agents">docs/agents</a>.
+          </p>
+          <p>Press Ctrl-] then one of these keys in the session:</p>
+          <ul>
+            <li><code>k</code> take the keyboard (agents are refused) or give it back</li>
+            <li><code>p</code> private mode on or off</li>
+            <li><code>y</code> or <code>n</code> accept or reject the agent line waiting for confirmation</li>
+            <li><code>a</code> or <code>x</code> allow or deny a pending person attach</li>
+            <li><code>s</code> share the session with agents, or hide it</li>
+            <li><code>c</code> show the reattach code</li>
+            <li><code>d</code> detach, which prints the reattach code</li>
+            <li><code>?</code> help</li>
+          </ul>
+          <p>
+            <code>cotty attach work</code> reattaches and asks for the reattach code. Do not type a
+            code into a session: the real code prompt is the attach client's, in a terminal of its own.
+          </p>
+        </div>
+      </section>
+
+      <section id="source" class="section" aria-labelledby="source-title">
+        <div class="wrap">
+          <p class="eyebrow">Source and documentation</p>
+          <h2 id="source-title">One repository.</h2>
+          <p class="section-intro">
+            The source, the threat model and the design notes live together. Start with the README,
+            then the threat model in docs/PLAN.md, section 2.
+          </p>
+          <ul class="repo-links" aria-label="cotty documentation">
+            <li><a href="https://github.com/openbasalt/cotty">openbasalt/cotty</a>: the source, README and changelog</li>
+            <li><a href="https://github.com/openbasalt/cotty/blob/main/docs/PLAN.md">docs/PLAN.md</a>: goals, threat model and design</li>
+            <li><a href="https://github.com/openbasalt/cotty/blob/main/docs/security.md">docs/security.md</a>: what each assurance level covers, where secrets live in memory, and the known limits</li>
+            <li><a href="https://github.com/openbasalt/cotty/blob/main/docs/broker.md">docs/broker.md</a>: sessions, status line, hotkeys, the lock, admission, audit</li>
+            <li><a href="https://github.com/openbasalt/cotty/blob/main/docs/confinement.md">docs/confinement.md</a>: <code>cotty agent</code>, <code>cotty doctor</code>, profiles</li>
+            <li><a href="https://github.com/openbasalt/cotty/blob/main/docs/guard.md">docs/guard.md</a>: <code>cotty-guard</code>, the BPF LSM layer</li>
+            <li><a href="https://github.com/openbasalt/cotty/blob/main/docs/mcp.md">docs/mcp.md</a>: <code>cotty mcp</code> and the tools agents use</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="license" class="section" aria-labelledby="license-title">
+        <div class="wrap prose">
+          <p class="eyebrow">License</p>
+          <h2 id="license-title">Apache License 2.0.</h2>
+          <p>
+            cotty is licensed under the
+            <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache License, Version 2.0</a>. The
+            BPF programs are dual licensed Apache-2.0 OR GPL-2.0-only, because the kernel requires a
+            GPL compatible license for BPF LSM programs.
+          </p>
+          <p>
+            Please report security problems privately, through GitHub's private vulnerability
+            reporting on the repository. See its
+            <a href="https://github.com/openbasalt/cotty/blob/main/SECURITY.md">SECURITY.md</a>.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <dialog class="lightbox" aria-label="Image viewer">
+      <div class="lightbox-bar">
+        <span class="lb-count" aria-live="polite"></span>
+        <button class="lb-btn lb-close" type="button" aria-label="Close">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18" /></svg>
+        </button>
+      </div>
+      <div class="lightbox-stage">
+        <button class="lb-btn lb-prev" type="button" aria-label="Previous image">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7" /></svg>
+        </button>
+        <img alt="" />
+        <button class="lb-btn lb-next" type="button" aria-label="Next image">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7" /></svg>
+        </button>
+      </div>
+      <p class="lightbox-caption"><span class="shot-caption"></span><span class="shot-meta"></span></p>
+    </dialog>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <div>
+          <p>OpenBasalt. Open source on solid ground.</p>
+          <p>Created by <a href="https://edimar-cardoso.me/en" rel="me noopener">Edimar Cardoso</a>.</p>
+          <p>This site counts visits with <a href="https://umami.is">Umami</a>, self-hosted: no cookies, no personal data, and it honours Do Not Track.</p>
+        </div>
+        <div class="footer-side">
+          <ul class="social" aria-label="OpenBasalt elsewhere">
+            <li><a href="https://github.com/basalt-os" rel="me noopener"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>basalt-os on GitHub</a></li>
+            <li><a href="https://github.com/openbasalt" rel="me noopener"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>openbasalt on GitHub</a></li>
+            <li><a href="https://x.com/openbasalt" rel="me noopener" aria-label="OpenBasalt on X"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="currentColor"><path d="M18.24 2.25h3.31l-7.23 8.26 8.5 11.24h-6.65l-5.21-6.82-5.97 6.82H1.68l7.73-8.84L1.25 2.25h6.83l4.71 6.23zm-1.16 17.52h1.83L7.08 4.13H5.12z"/></svg>X</a></li>
+            <li><a href="https://www.youtube.com/@OpenBasalt" rel="me noopener" aria-label="OpenBasalt on YouTube"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4l6.2 3.6z"/></svg>YouTube</a></li>
+          </ul>
+          <ul class="footer-links">
+            <li><a href="https://github.com/openbasalt/openbasalt.org">Site source</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+    <script src="../../assets/gallery.js?v=1" defer></script>
+  </body>
+</html>
