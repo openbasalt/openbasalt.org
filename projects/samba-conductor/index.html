@@ -159,11 +159,39 @@
             <li class="feature">
               <h3>The domain controller, in a browser</h3>
               <p>
-                Users, groups, OUs, computers, DNS zones and records, Group Policy links, password
-                policies, lockouts across domain controllers, account health and bulk changes from
-                CSV files. Two-factor sign-in, required for administrators.
+                Users, groups, OUs, computers, Group Policy links, password policies, lockouts across
+                domain controllers, account health and bulk changes from CSV files. The Users, Groups
+                and Computers lists can be limited to one OU and everything below it, in a link you
+                can share. Two-factor sign-in, required for administrators.
               </p>
               <p class="component"><a href="https://github.com/openbasalt/samba-conductor">conductor</a></p>
+            </li>
+            <li class="feature">
+              <h3>DNS, forward and reverse</h3>
+              <p>
+                Zones and records stored in the directory, reverse zones and PTR records included. A
+                new A or AAAA record can bring its PTR record, added to the most specific reverse zone
+                that covers the address. The names a domain controller registers for itself stay
+                read-only, while records such as DKIM, DMARC or ACME challenges can be edited.
+              </p>
+              <p class="component">
+                <a href="https://github.com/openbasalt/samba-conductor">conductor</a>,
+                <a href="https://github.com/openbasalt/samba-conductor-ad">ad</a>
+              </p>
+            </li>
+            <li class="feature">
+              <h3>Every attribute of an account</h3>
+              <p>
+                A user's Attributes tab shows administrators and auditors every attribute they may
+                read, as the directory stores it. Password hashes, recovery keys and other secrets
+                are never shown. An optional editor, off by default, lets administrators change a few
+                Unix and mail attributes, such as the login shell or the uidNumber: each value is
+                checked, previewed, confirmed with a recent second factor and audited.
+              </p>
+              <p class="component">
+                <a href="https://github.com/openbasalt/samba-conductor">conductor</a>,
+                <a href="https://github.com/openbasalt/samba-conductor-ad">ad</a>
+              </p>
             </li>
             <li class="feature">
               <h3>Single sign-on with OIDC and SAML</h3>
@@ -236,6 +264,34 @@
                 <figcaption>
                   <span class="shot-caption">Exact changes: the LDAP writes are shown before you apply them. Passwords are never displayed.</span>
                   <span class="shot-meta">conductor, 2026-10</span>
+                </figcaption>
+              </figure>
+            </li>
+            <li class="shot">
+              <figure>
+                <a class="shot-link" href="../../assets/gallery/sc-user-attributes-1600.webp" data-full="../../assets/gallery/sc-user-attributes-1600.webp" data-width="1366" data-height="1024">
+                  <picture>
+                    <source srcset="../../assets/gallery/sc-user-attributes-720.webp" type="image/webp" />
+                    <img src="../../assets/gallery/sc-user-attributes-720.jpg" width="720" height="540" loading="lazy" decoding="async" alt="A test user's Attributes tab: a table of attribute names and values, from accountExpires to memberOf, with a note that secrets are never shown." />
+                  </picture>
+                </a>
+                <figcaption>
+                  <span class="shot-caption">A user's Attributes tab: everything you may read on the account, secrets never shown.</span>
+                  <span class="shot-meta">conductor, 2026-11</span>
+                </figcaption>
+              </figure>
+            </li>
+            <li class="shot">
+              <figure>
+                <a class="shot-link" href="../../assets/gallery/sc-attributes-preview-1600.webp" data-full="../../assets/gallery/sc-attributes-preview-1600.webp" data-width="1366" data-height="780">
+                  <picture>
+                    <source srcset="../../assets/gallery/sc-attributes-preview-720.webp" type="image/webp" />
+                    <img src="../../assets/gallery/sc-attributes-preview-720.jpg" width="720" height="411" loading="lazy" decoding="async" alt="Preview of an attribute change on a test user: loginShell and uidNumber with their old and new values, the LDAP writes, and Apply and Cancel buttons." />
+                  </picture>
+                </a>
+                <figcaption>
+                  <span class="shot-caption">The optional attribute editor: old and new values, applied only if they have not changed since they were read.</span>
+                  <span class="shot-meta">conductor, 2026-11</span>
                 </figcaption>
               </figure>
             </li>
