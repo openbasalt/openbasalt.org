@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Samba Conductor: web console for Samba Active Directory, OpenBasalt</title>
-    <meta name="description" content="Samba Conductor runs a Samba Active Directory domain from a web console, with single sign-on through OpenID Connect and SAML, Google Workspace sync, self-service and branding. Open source, Apache-2.0. Latest release 0.2.0." />
+    <meta name="description" content="Samba Conductor runs a Samba Active Directory domain from a web console, with single sign-on through OpenID Connect and SAML, Google Workspace sync, self-service and branding. Open source, Apache-2.0. Latest release 0.3.0, of 2026-11-24." />
     <link rel="canonical" href="https://openbasalt.org/projects/samba-conductor/" />
     <meta name="theme-color" content="#f6f5f2" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#14171b" media="(prefers-color-scheme: dark)" />
@@ -17,19 +17,19 @@
     <meta property="og:site_name" content="OpenBasalt" />
     <meta property="og:locale" content="en_US" />
     <meta property="og:title" content="Samba Conductor: Samba Active Directory, run from a web console" />
-    <meta property="og:description" content="Administration, single sign-on with OIDC and SAML, Google Workspace sync and self-service for Samba AD. Open source, release 0.2.0, signed packages for Debian, Ubuntu, Fedora and Basalt OS, and container images." />
+    <meta property="og:description" content="Administration, single sign-on with OIDC and SAML, Google Workspace sync and self-service for Samba AD. Open source, release 0.3.0, signed packages for Debian, Ubuntu, Fedora and Basalt OS, and container images." />
     <meta property="og:url" content="https://openbasalt.org/projects/samba-conductor/" />
-    <meta property="og:image" content="https://openbasalt.org/assets/projects/samba-conductor/og.jpg?v=2" />
+    <meta property="og:image" content="https://openbasalt.org/assets/projects/samba-conductor/og.jpg?v=3" />
     <meta property="og:image:type" content="image/jpeg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Samba Conductor, an OpenBasalt project: the dashboard and a change preview of a test domain, marked release 0.2.0." />
+    <meta property="og:image:alt" content="Samba Conductor, an OpenBasalt project: the dashboard and a change preview of a test domain, marked release 0.3.0." />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@openbasalt" />
     <meta name="twitter:title" content="Samba Conductor: Samba Active Directory, run from a web console" />
-    <meta name="twitter:description" content="Administration, single sign-on with OIDC and SAML, Google Workspace sync and self-service for Samba AD. Open source, release 0.2.0, signed packages for Debian, Ubuntu, Fedora and Basalt OS, and container images." />
-    <meta name="twitter:image" content="https://openbasalt.org/assets/projects/samba-conductor/og.jpg?v=2" />
-    <meta name="twitter:image:alt" content="Samba Conductor, an OpenBasalt project: the dashboard and a change preview of a test domain, marked release 0.2.0." />
+    <meta name="twitter:description" content="Administration, single sign-on with OIDC and SAML, Google Workspace sync and self-service for Samba AD. Open source, release 0.3.0, signed packages for Debian, Ubuntu, Fedora and Basalt OS, and container images." />
+    <meta name="twitter:image" content="https://openbasalt.org/assets/projects/samba-conductor/og.jpg?v=3" />
+    <meta name="twitter:image:alt" content="Samba Conductor, an OpenBasalt project: the dashboard and a change preview of a test domain, marked release 0.3.0." />
 
     <link rel="stylesheet" href="../../assets/site.css?v=5" />
     <!-- Umami, self-hosted. No cookies, no cross-site identifier, no personal
@@ -56,7 +56,8 @@
       "applicationCategory": "BusinessApplication",
       "applicationSubCategory": "Directory administration",
       "creativeWorkStatus": "Released",
-      "softwareVersion": "0.2.0",
+      "softwareVersion": "0.3.0",
+      "dateModified": "2026-11-24",
       "operatingSystem": "Linux (Debian 13, Ubuntu 24.04 and 26.04, Fedora 44, Basalt OS)",
       "license": "https://www.apache.org/licenses/LICENSE-2.0",
       "isAccessibleForFree": true,
@@ -66,7 +67,7 @@
         "priceCurrency": "USD"
       },
       "installUrl": "https://openbasalt.org/projects/samba-conductor/#install",
-      "image": "https://openbasalt.org/assets/projects/samba-conductor/og.jpg?v=2",
+      "image": "https://openbasalt.org/assets/projects/samba-conductor/og.jpg?v=3",
       "screenshot": "https://openbasalt.org/assets/gallery/sc-dashboard-1600.webp",
       "sameAs": [
         "https://github.com/openbasalt/samba-conductor"
@@ -117,14 +118,15 @@
         <div class="preview-banner" role="note">
           <span class="status-dot" aria-hidden="true"></span>
           <div>
-            <p>Released. The latest release is 0.2.0, of 2026-10-20.</p>
+            <p>Released. The latest release is 0.3.0, of 2026-11-24.</p>
             <p>
               Samba Conductor is a young project. Every release is tested end to end in a lab with
               two domain controllers, and its packages and container images are signed. Try it on a
               test domain first, before a domain people depend on.
             </p>
             <p>
-              <a href="https://github.com/openbasalt/samba-conductor/releases">Release notes</a>
+              <a href="https://github.com/openbasalt/samba-conductor/releases">Release notes</a>,
+              <a href="https://github.com/openbasalt/samba-conductor-docs/blob/main/upgrading.md">upgrade notes</a>
               and <a href="#install">install</a>.
             </p>
           </div>
@@ -159,11 +161,41 @@
             <li class="feature">
               <h3>The domain controller, in a browser</h3>
               <p>
-                Users, groups, OUs, computers, DNS zones and records, Group Policy links, password
-                policies, lockouts across domain controllers, account health and bulk changes from
-                CSV files. Two-factor sign-in, required for administrators.
+                Users, groups, OUs, computers, Group Policy links, password policies, lockouts across
+                domain controllers, account health and bulk changes from CSV files. The Users, Groups
+                and Computers lists can be limited to one OU and everything below it, in a link you
+                can share. Two-factor sign-in, required for administrators.
               </p>
               <p class="component"><a href="https://github.com/openbasalt/samba-conductor">conductor</a></p>
+            </li>
+            <li class="feature">
+              <h3>DNS, forward and reverse</h3>
+              <p>
+                Zones and records stored in the directory, reverse zones and PTR records included. A
+                new A or AAAA record can bring its PTR record, added to the most specific reverse zone
+                that covers the address. The names a domain controller registers for itself stay
+                read-only, while records such as DKIM, DMARC or ACME challenges can be edited. TXT data
+                is typed one string per line, long lines are split into 255-byte strings for you, and
+                the preview shows the record exactly as it will be stored.
+              </p>
+              <p class="component">
+                <a href="https://github.com/openbasalt/samba-conductor">conductor</a>,
+                <a href="https://github.com/openbasalt/samba-conductor-ad">ad</a>
+              </p>
+            </li>
+            <li class="feature">
+              <h3>Every attribute of an account</h3>
+              <p>
+                A user's Attributes tab shows administrators and auditors every attribute they may
+                read, as the directory stores it. Password hashes, recovery keys and other secrets
+                are never shown. An optional editor, off by default, lets administrators change a few
+                Unix and mail attributes, such as the login shell or the uidNumber: each value is
+                checked, previewed, confirmed with a recent second factor and audited.
+              </p>
+              <p class="component">
+                <a href="https://github.com/openbasalt/samba-conductor">conductor</a>,
+                <a href="https://github.com/openbasalt/samba-conductor-ad">ad</a>
+              </p>
             </li>
             <li class="feature">
               <h3>Single sign-on with OIDC and SAML</h3>
@@ -236,6 +268,48 @@
                 <figcaption>
                   <span class="shot-caption">Exact changes: the LDAP writes are shown before you apply them. Passwords are never displayed.</span>
                   <span class="shot-meta">conductor, 2026-10</span>
+                </figcaption>
+              </figure>
+            </li>
+            <li class="shot">
+              <figure>
+                <a class="shot-link" href="../../assets/gallery/sc-user-attributes-1600.webp" data-full="../../assets/gallery/sc-user-attributes-1600.webp" data-width="1366" data-height="1024">
+                  <picture>
+                    <source srcset="../../assets/gallery/sc-user-attributes-720.webp" type="image/webp" />
+                    <img src="../../assets/gallery/sc-user-attributes-720.jpg" width="720" height="540" loading="lazy" decoding="async" alt="A test user's Attributes tab: a table of attribute names and values, from accountExpires to memberOf, with a note that secrets are never shown." />
+                  </picture>
+                </a>
+                <figcaption>
+                  <span class="shot-caption">A user's Attributes tab: everything you may read on the account, secrets never shown.</span>
+                  <span class="shot-meta">conductor, 2026-11</span>
+                </figcaption>
+              </figure>
+            </li>
+            <li class="shot">
+              <figure>
+                <a class="shot-link" href="../../assets/gallery/sc-attributes-preview-1600.webp" data-full="../../assets/gallery/sc-attributes-preview-1600.webp" data-width="1366" data-height="780">
+                  <picture>
+                    <source srcset="../../assets/gallery/sc-attributes-preview-720.webp" type="image/webp" />
+                    <img src="../../assets/gallery/sc-attributes-preview-720.jpg" width="720" height="411" loading="lazy" decoding="async" alt="Preview of an attribute change on a test user: loginShell and uidNumber with their old and new values, the LDAP writes, and Apply and Cancel buttons." />
+                  </picture>
+                </a>
+                <figcaption>
+                  <span class="shot-caption">The optional attribute editor: old and new values, applied only if they have not changed since they were read.</span>
+                  <span class="shot-meta">conductor, 2026-11</span>
+                </figcaption>
+              </figure>
+            </li>
+            <li class="shot">
+              <figure>
+                <a class="shot-link" href="../../assets/gallery/sc-dns-txt-1600.webp" data-full="../../assets/gallery/sc-dns-txt-1600.webp" data-width="1366" data-height="1024">
+                  <picture>
+                    <source srcset="../../assets/gallery/sc-dns-txt-720.webp" type="image/webp" />
+                    <img src="../../assets/gallery/sc-dns-txt-720.jpg" width="720" height="540" loading="lazy" decoding="async" alt="Preview of a new DKIM TXT record in a test zone: the record in its quoted form, a long key split into 255-byte strings, and the LDAP writes with Apply and Cancel buttons." />
+                  </picture>
+                </a>
+                <figcaption>
+                  <span class="shot-caption">A long DKIM key typed one string per line, previewed as the quoted strings it will be stored in.</span>
+                  <span class="shot-meta">conductor, 2026-11</span>
                 </figcaption>
               </figure>
             </li>
@@ -322,6 +396,16 @@
               <p class="eyebrow">Releases</p>
               <ul>
                 <li>
+                  0.3.0, 2026-11-24: conductor 0.3.0 with the container filter, PTR records, editable
+                  DKIM and other underscore records, multi-line TXT data and the Attributes tab;
+                  conductor-idp 0.2.0, conductor-sync 0.3.0, conductor-backup 0.2.0 and
+                  conductor-provisioner 0.1.2, with security hardening across the components.
+                  conductor and conductor-idp are upgraded together; read the
+                  <a href="https://github.com/openbasalt/samba-conductor-docs/blob/main/upgrading.md">upgrade notes</a>
+                  first.
+                </li>
+                <li>0.2.1, 2026-10-23: a security update of the released components, built with a newer Go.</li>
+                <li>
                   0.2.0, 2026-10-20: conductor and conductor-sync 0.2.0, the new
                   <a href="https://github.com/openbasalt/samba-conductor-provisioner">conductor-provisioner</a>
                   0.1.0 for invitations, password reset by e-mail and the Google-first mode, and six
@@ -331,8 +415,8 @@
                 <li>0.1.0, 2026-10-09: the first release.</li>
               </ul>
               <p>
-                Each release is a signed GitHub release with packages, SBOMs and signed checksums, also
-                published in the stable channels on obpkg.org. See the
+                Each release is a signed tag with packages, SBOMs and signed checksums, published in the
+                stable channels on obpkg.org. See the
                 <a href="https://github.com/openbasalt/samba-conductor/releases">release notes</a> and
                 <a href="https://github.com/openbasalt/samba-conductor-docs/blob/main/verifying-releases.md">how to verify a release</a>.
               </p>
@@ -351,7 +435,7 @@
               </p>
               <p class="eyebrow">Good to know</p>
               <ul>
-                <li>Versions are still 0.x: settings may change between releases, so read the release notes before you upgrade.</li>
+                <li>Versions are still 0.x: settings may change between releases, so read the release notes and the <a href="https://github.com/openbasalt/samba-conductor-docs/blob/main/upgrading.md">upgrade notes</a> before you upgrade.</li>
                 <li>The domain controller container image is a preview, for labs and evaluation. The packages are the recommended way to run a production domain controller.</li>
               </ul>
             </div>
@@ -409,7 +493,8 @@ gpgkey=https://obpkg.org/keys/openbasalt-release-key.asc</code></pre>
             Six images, built from the same signed packages and signed with cosign: the console, the
             identity provider, the sync, the backups, the provisioner and a domain controller in
             preview. They are published on Docker Hub and the GitHub Container Registry with the same
-            digests, with <code>latest</code> at 0.2.0. Compose files are in
+            digests, with <code>latest</code> at 0.2.0: the images do not carry the 0.3.0 components
+            yet. Compose files are in
             <a href="https://github.com/openbasalt/samba-conductor-containers">samba-conductor-containers</a>,
             and the guide to running and verifying them is
             <a href="https://github.com/openbasalt/samba-conductor-docs/blob/main/containers.md">containers.md</a>.
